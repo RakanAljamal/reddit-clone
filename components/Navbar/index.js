@@ -1,9 +1,14 @@
 import React from 'react';
 import styles from './styles.module.scss';
+import LogoContainer from "../LogoContainer";
+import SearchContainer from "../SearchContainer";
+import Account from "../Account";
 
-const Navbar =  () =>{
+const Navbar = () => {
     return <div className={styles.nav}>
-        Navbar
+        <LogoContainer/>
+        <SearchContainer/>
+        <Account/>
     </div>
 }
 

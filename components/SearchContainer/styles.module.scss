@@ -1,0 +1,36 @@
+@import "styles/variables";
+
+.searchContainer {
+  position: relative;
+  flex-grow: 1;
+  margin: 0 auto;
+  background: $NAVBAR_BG_LIGHT_PRIMARY;
+
+  & > input {
+    border: 1px solid $SEARCH_FIELD_BORDER;
+    background: $SEARCH_FIELD;
+    height: 36px;
+    outline: none;
+    padding: 0 16px 0 40px;
+    width: 100%;
+    max-width: 680px;
+
+    &:hover, &:focus {
+      background: $NAVBAR_BG_LIGHT_PRIMARY;
+      border: 1px solid $SEARCH_FIELD_HOVER_BORDER;
+    }
+  }
+}
+
+.searchLogo {
+  fill: $SEARCH_ICON;
+  height: 17px;
+  width: 17px
+}
+
+.searchLogoContainer {
+  position: absolute;
+  top: 23%;
+  height: 18px;
+  margin-left: 19px;
+}

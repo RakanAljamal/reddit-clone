@@ -1,4 +1,10 @@
 @import "styles/variables";
+
 .nav {
-    background: $PRIMARY_BG_COLOR;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  background: $NAVBAR_BG_LIGHT_PRIMARY;
 }
