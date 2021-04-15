@@ -1,0 +1,33 @@
+@mixin rButton{
+  padding: 6px 16px;
+  margin: 0.25rem;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: Noto Sans,Arial,sans-serif;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+}
+
+.rPrimary{
+  color: #0079d3;
+  fill: #0079d3;
+  border: 1px solid #0079d3;
+
+  &:hover,&:focus {
+    background-color: #f5fafd;
+  }
+  @include rButton
+}
+
+.rSecondary{
+  color: #FFF;
+  background-color: #0079d3;
+  border: 1px solid #0079d3;
+
+  &:hover,&:focus {
+    opacity: .9;
+  }
+  @include rButton
+}

@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './styles.module.scss';
 import LogoContainer from "../LogoContainer";
 import SearchContainer from "../SearchContainer";
-import Account from "../Account";
+import RegistrationContainer from "../RegistrationContainer";
 
 const Navbar = () => {
     return <div className={styles.nav}>
         <LogoContainer/>
         <SearchContainer/>
-        <Account/>
+        <RegistrationContainer/>
     </div>
 }
 

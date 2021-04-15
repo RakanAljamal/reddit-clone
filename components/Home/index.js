@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from './styles.module.scss';
 
-const Home = () => {
-    return <div className={styles.nav}>
-        Navbar
+const HomePage = () => {
+    return <div className={styles.homePage}>
+        HOME
     </div>
 }
 
-export default Home;
+export default HomePage;
