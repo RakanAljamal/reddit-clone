@@ -2,37 +2,43 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 
 
-const rPrimary = (props) => `
+const rPrimary = (props) => css`
   color: #0079d3;
   fill: #0079d3;
   border: 1px solid #0079d3;
 
-  &:hover,&:focus {
-  background-color: #f5fafd;
+  &:hover, &:focus {
+    background-color: #f5fafd;
   }`
-const rShadow = (props) => `
+const rShadow = (props) => css`
+  padding: 6px 8px;
   color: #0079d3;
   fill: #0079d3;
   background-color: #f6f7f8;
-  
-  &:hover{ 
-  background-color:#E3EDF6;
+  display: inline-block;
+
+  &:hover {
+    background-color: #E3EDF6;
   }
-  `
+
+  & > span {
+    font-size: 13px;
+  }
+`
 
 
-const rSecondary = (props) => `
+const rSecondary = (props) => css`
   color: #FFF;
   background-color: #0079d3;
   border: 1px solid #0079d3;
 
-  &:hover,&:focus {
+  &:hover, &:focus {
     opacity: .9;
   }
-  
+
   ${props.fullWidth && css`
 
-  display: inline-block;
+    display: inline-block;
   width: 100%;
   text-align: center;
 
@@ -64,7 +70,7 @@ const Button = styled.a`
 
 const RButton = (props) => {
     return <Button {...props}>
-        {props.title}
+        <span>{props.title}</span>
     </Button>
 }
 
