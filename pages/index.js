@@ -1,7 +1,6 @@
 import HomePage from "../components/HomePage";
 
 export default function Home(props) {
-    console.log(props)
     return (
         <div>
             <HomePage {...props}/>

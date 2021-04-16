@@ -4,7 +4,6 @@ import Subreddit from "../Subreddit";
 import RButton from '../RButton/index';
 
 const SideSection = ({title, subreddits}) => {
-    console.log(subreddits)
     return <div className={styles.topSection}>
         <div className={styles.topBanner}>
             <a className={styles.topBannerText} href="#">Top Programming Communities</a>
