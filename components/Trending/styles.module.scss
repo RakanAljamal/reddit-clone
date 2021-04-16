@@ -1,0 +1,15 @@
+@import "styles/variables";
+
+.trendingTitle {
+  margin-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #333;
+  text-transform: unset;
+}
+
+.trendingContainer {
+  display: flex;
+  justify-content: space-between;
+}
