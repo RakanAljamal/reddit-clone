@@ -5,10 +5,13 @@
 }
 
 .filterContainer {
-  height: 56px;
+  display: flex;
+  height: 53px;
   width: 609px;
   background: #fff;
   margin-bottom: 20px;
+  align-items: center;
+  padding: 10px 12px;
 }
 
 .filterBackgroundContainer {
