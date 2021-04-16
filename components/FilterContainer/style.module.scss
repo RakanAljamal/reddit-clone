@@ -1,0 +1,16 @@
+@import "styles/mixin";
+
+.filterTitle {
+  @include mainTitle;
+}
+
+.filterContainer {
+  height: 56px;
+  width: 609px;
+  background: #fff;
+  margin-bottom: 20px;
+}
+
+.filterBackgroundContainer {
+  margin-top: -40px;
+}

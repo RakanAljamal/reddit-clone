@@ -1,12 +1,7 @@
 @import "styles/variables";
-
+@import "styles/mixin";
 .trendingTitle {
-  margin-bottom: 10px;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 18px;
-  color: #333;
-  text-transform: unset;
+  @include mainTitle
 }
 
 .trendingContainer {
