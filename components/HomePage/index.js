@@ -5,7 +5,7 @@ import Trending from "../Trending";
 import FilterContainer from "../FilterContainer/FilterContainer";
 import SideSection from "../SideSection/SideSection";
 
-const HomePage = ({trending}) => {
+const HomePage = ({trending, subreddits}) => {
     return <React.Fragment>
         <Navbar/>
         <div className={styles.homePage}>
@@ -13,7 +13,7 @@ const HomePage = ({trending}) => {
 
             <div className={styles.mainPageContainer}>
                 <FilterContainer title='Popular posts'/>
-                <SideSection/>
+                <SideSection subreddits={subreddits}/>
             </div>
         </div>
 
