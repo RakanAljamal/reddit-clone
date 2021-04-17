@@ -1,5 +1,5 @@
 import React from 'react';
-import {faBookmark, faCommentAlt, faShare} from "@fortawesome/free-solid-svg-icons";
+import {faBookmark, faCommentAlt, faEllipsisH, faShare} from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import styles from './styles.module.scss';
 
@@ -16,6 +16,9 @@ const PostFooter = () => {
         <div className={styles.save}>
             <FontAwesomeIcon icon={faBookmark}/>
             <span>Save</span>
+        </div>
+        <div className={styles.options}>
+            <FontAwesomeIcon icon={faEllipsisH}/>
         </div>
 
     </div>

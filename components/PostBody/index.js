@@ -8,7 +8,7 @@ const ShortTitleShortTextPost = styled.div`
   margin: 0 8px;
   font-family: BentonSans, sans-serif;
   color: #222222;
-  height: 200px;
+  height: 140px;
 
   & > h3 {
     font-family: IBMPlexSans, Arial, sans-serif;;

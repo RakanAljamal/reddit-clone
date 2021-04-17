@@ -1,4 +1,33 @@
 .postFooter {
   display: flex;
+  padding: 0 8px 0 8px;
+}
+
+.comment, .share, .save, .options {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  color: #878A8C;
+  font-size: 12px;
+  padding: 8px;
+
+  & > svg {
+    margin-right: 4px;
+  }
+
+  & > span {
+    display: inline-block;
+    text-transform: capitalize;
+    vertical-align: middle;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 16px;
+  }
+
+  &:hover {
+    background: rgba(26, 26, 26, 0.1);
+  }
 
 }
+
+
