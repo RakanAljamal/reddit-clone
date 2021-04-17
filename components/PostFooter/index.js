@@ -11,11 +11,11 @@ const PostFooter = () => {
         </div>
         <div className={styles.share}>
             <FontAwesomeIcon icon={faShare}/>
-            <span>11.7k Comments</span>
+            <span>Share</span>
         </div>
         <div className={styles.save}>
             <FontAwesomeIcon icon={faBookmark}/>
-            <span>11.7k Comments</span>
+            <span>Save</span>
         </div>
 
     </div>
