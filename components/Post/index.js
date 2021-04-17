@@ -20,7 +20,7 @@ const Post = (props) => {
                 <PostBody {...props}/>
             </div>
             <div className={styles.postFooter}>
-                <PostFooter/>
+                <PostFooter {...props}/>
             </div>
 
         </div>

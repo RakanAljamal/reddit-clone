@@ -53,6 +53,9 @@ Home.getInitialProps = async (ctx) => {
             },
             user: 'Rakan',
             date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            }
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -62,6 +65,9 @@ Home.getInitialProps = async (ctx) => {
             },
             user: 'Rakan',
             date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            }
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -71,6 +77,9 @@ Home.getInitialProps = async (ctx) => {
             },
             user: 'Rakan',
             date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            }
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -80,6 +89,9 @@ Home.getInitialProps = async (ctx) => {
             },
             user: 'Rakan',
             date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            }
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -89,6 +101,9 @@ Home.getInitialProps = async (ctx) => {
             },
             user: 'Rakan',
             date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            }
         }]
     }
 }
