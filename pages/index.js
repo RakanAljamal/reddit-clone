@@ -55,7 +55,23 @@ Home.getInitialProps = async (ctx) => {
             date: '4 hours ago',
             comments: {
                 count: '11.4k'
-            }
+            },
+            type: 'ShortTitleWithPhoto',
+            image: 'https://chrisbrownie.dev/blog/creating-a-completely-static-build-with-nextjs/nextjs.png'
+        }, {
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'twitch',
+                logo: 'https://media-exp1.licdn.com/dms/image/C560BAQHm82ECP8zsGw/company-logo_200_200/0/1593628073916?e=2159024400&v=beta&t=89u72cg5KzjSQ1qwB9xPZYhWvr7jFkD_9mUyFdNFnVw'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
+            comments: {
+                count: '11.4k'
+            },
+            type: 'ShortTitleWithPhoto',
+            'image': 'https://www.ginx.tv/uploads/pogchamps_3_main.jpg'
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -67,7 +83,8 @@ Home.getInitialProps = async (ctx) => {
             date: '4 hours ago',
             comments: {
                 count: '11.4k'
-            }
+            },
+            type: 'ShortTitleShortBody'
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -79,7 +96,8 @@ Home.getInitialProps = async (ctx) => {
             date: '4 hours ago',
             comments: {
                 count: '11.4k'
-            }
+            },
+            type: 'ShortTitleShortBody'
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
@@ -91,19 +109,8 @@ Home.getInitialProps = async (ctx) => {
             date: '4 hours ago',
             comments: {
                 count: '11.4k'
-            }
-        }, {
-            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
-            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
-            subreddit: {
-                name: 'nextjs',
-                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
             },
-            user: 'Rakan',
-            date: '4 hours ago',
-            comments: {
-                count: '11.4k'
-            }
+            type: 'ShortTitleShortBody'
         }]
     }
 }

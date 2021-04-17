@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import {formatBodyLength} from "../../util/utils";
 import {PostType} from "../../enum/PostType";
+import styles from './styles.module.scss';
 
 const ShortTitleShortTextPost = styled.div`
   line-height: 22px;
@@ -23,25 +24,30 @@ const ShortTitleShortTextPost = styled.div`
 `;
 const ShortTitleWithPhotoPost = styled.div`
   line-height: 22px;
-  margin: 0 8px;
   font-family: BentonSans, sans-serif;
   color: #222222;
-  height: 200px;
+  height: 413px;
 
   & > h3 {
     font-family: IBMPlexSans, Arial, sans-serif;;
     font-size: 18px;
     font-weight: 600;
+    margin-left: 4px;
+    margin-bottom: 4px;
   }
 
-  & > span {
-    font-size: 12px;
-    line-height: 16px;
+  & > div {
+    margin: 0;
+    ${props => props.image && `background: url(${props.image}) center center/cover;`}
+    max-width: 100%;
+    max-height: 366px;
+    height: 100%;
   }
 `;
 
-const GetPost = (props, type) => {
-    switch (type) {
+const getPost = (props) => {
+    console.log(props)
+    switch (props.type) {
         case PostType.ShortTitleShortBody:
             return <ShortTitleShortTextPost>
                 <h3>{props.title}</h3>
@@ -49,17 +55,17 @@ const GetPost = (props, type) => {
                 <span>{formatBodyLength(props.body)}</span>
             </ShortTitleShortTextPost>
         case PostType.ShortTitleWithPhoto:
-            return <ShortTitleShortTextPost {...props} />
+            return <ShortTitleWithPhotoPost {...props} >
+                <h3>{props.title}</h3>
+                <div/>
+            </ShortTitleWithPhotoPost>
     }
-}
-const PostBody = ({title, body, type}) => {
+};
 
-    return <div>
-        <ShortTitleShortTextPost>
-            <h3>{title}</h3>
-            {/*<h3>{title}</h3>*/}
-            <span>{formatBodyLength(body)}</span>
-        </ShortTitleShortTextPost>
+const PostBody = (props) => {
+
+    return <div className={styles.postBodyContainer}>
+        {getPost(props)}
     </div>
 }
 
