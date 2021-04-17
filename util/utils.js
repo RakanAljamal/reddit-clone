@@ -1,4 +1,7 @@
-const formatSubredditName = (name) => `r/${name}`;
+const formatSubredditName = (subreddit) => `r/${subreddit}`;
 
+const formatUserName = (name) => `u/${name}`;
 
-export {formatSubredditName};
+const formatBodyLength = (body) => `${body.substr(0, 22)}...`;
+
+export {formatSubredditName, formatUserName, formatBodyLength};

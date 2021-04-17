@@ -43,6 +43,52 @@ Home.getInitialProps = async (ctx) => {
         }, {
             logo: 'https://styles.redditmedia.com/t5_2fwo/styles/communityIcon_1bqa1ibfp8q11.png?width=256&s=45361614cdf4a306d5510b414d18c02603c7dd3c',
             name: 'programming'
+        }],
+        posts: [{
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'nextjs',
+                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
+        }, {
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'nextjs',
+                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
+        }, {
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'nextjs',
+                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
+        }, {
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'nextjs',
+                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
+        }, {
+            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            subreddit: {
+                name: 'nextjs',
+                logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
+            },
+            user: 'Rakan',
+            date: '4 hours ago',
         }]
     }
 }

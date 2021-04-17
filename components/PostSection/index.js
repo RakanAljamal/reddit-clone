@@ -2,13 +2,13 @@ import React from 'react';
 import styles from './styles.module.scss';
 import Post from "../Post";
 
-const PostSection = () => {
+const PostSection = ({posts}) => {
+    console.log(posts)
     return <div className={styles.postSection}>
-        <Post/>
-        <Post/>
-        <Post/>
-        <Post/>
+        {posts.map(post => {
+            return <Post {...post} />
+        })}
     </div>
-}
+};
 
 export default PostSection;

@@ -3,11 +3,11 @@ import styles from './styles.module.scss';
 import FilterContainer from "../FilterContainer";
 import PostSection from "../PostSection";
 
-const MainSection = ({filterTitle}) => {
+const MainSection = ({filterTitle, posts}) => {
 
     return <div className={styles.mainSectionContainer}>
         <FilterContainer title={filterTitle}/>
-        <PostSection/>
+        <PostSection posts={posts}/>
     </div>
 }
 

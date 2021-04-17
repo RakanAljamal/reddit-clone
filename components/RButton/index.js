@@ -44,7 +44,7 @@ const rSecondary = (props) => css`
 
   `}
 `;
-const rJoin = css`
+const rJoin = () => css`
   ${rSecondary};
   padding-inline: initial;
   padding: 1px 6px;

@@ -14,17 +14,17 @@ const showDefaultOrLogo = (logo) => {
 
 
 }
-const Subreddit = ({index, logo, name}) => {
+const Subreddit = ({index, logo, name, hideArrow, hideIndex}) => {
     return <a href='#'>
         <div className={styles.subredditItem}>
-            <span>{index + 1}</span>
-            <svg className={styles.subredditArrow} viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg">
+            {!hideIndex && <span>{index + 1}</span>}
+            {!hideArrow && <svg className={styles.subredditArrow} viewBox="0 0 10 8" xmlns="http://www.w3.org/2000/svg">
                 <g>
                     <path
                         d="M4.152 1.3568C4.54367 0.730128 5.45633 0.730129 5.848 1.3568L9.04375 6.47C9.46003 7.13605 8.98119 8 8.19575 8H1.80425C1.01881 8 0.539969 7.13605 0.956249 6.47L4.152 1.3568Z"/>
                 </g>
             </svg>
-            {showDefaultOrLogo(logo)}
+            } {showDefaultOrLogo(logo)}
             <span>{formatSubredditName(name)}</span>
         </div>
     </a>

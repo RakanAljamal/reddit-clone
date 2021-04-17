@@ -1,18 +1,12 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import RButton from "../RButton";
+import PostHeader from "../PostHeader";
+import PostBody from "../PostBody";
+import PostFooter from "../PostFooter";
 
 
-// const RPost = styled.div`
-//   background: #fff;
-//   width: 100%;
-//   height: 200px;
-//   margin-bottom: 10px;
-// `;
-
-
-const Post = () => {
-    return <a href='#' className={styles.postContainer}>
+const Post = (props) => {
+    return <span className={styles.postContainer}>
         <div className={styles.leftSectionPost}>
             <span className={styles.upvote}/>
             <span className={styles.votes}>20.4k</span>
@@ -20,18 +14,17 @@ const Post = () => {
         </div>
         <div className={styles.mainSectionPost}>
             <div className={styles.postHeader}>
-
-                <RButton type='rJoin' title='Join'/>
+                <PostHeader {...props} />
             </div>
             <div className={styles.postBody}>
-
+                <PostBody {...props}/>
             </div>
             <div className={styles.postFooter}>
-
+                <PostFooter/>
             </div>
 
         </div>
-    </a>
+    </span>
 }
 
 export default Post;
