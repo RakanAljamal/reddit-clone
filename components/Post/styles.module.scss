@@ -1,0 +1,73 @@
+.postContainer {
+  display: inline-flex;
+  background: #fff;
+  width: 100%;
+  height: 200px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+
+  &:hover {
+    border: 1px solid #000;
+  }
+}
+
+.leftSectionPost {
+  flex-direction: column;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 4px;
+  background: #F8F9FA;
+  width: 37px;
+  opacity: 0.7;
+  padding: 8px;
+
+}
+
+.upvote {
+  height: 16px;
+  width: 16px;
+  background: url("https://i.redd.it/b9zcqp6w31w51.jpg") center center/cover;
+  filter: grayscale(100%);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+
+.votes {
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  pointer-events: none;
+  word-break: normal;
+  margin: 2px;
+}
+
+.downvote {
+  height: 16px;
+  width: 16px;
+  background: url("https://www.vhv.rs/dpng/d/127-1278380_reddit-downvote-transparent-hd-png-download.png ") center center/cover;
+  filter: grayscale(90%);
+
+  &:hover {
+    filter: grayscale(0);
+  }
+}
+
+.mainSectionPost {
+  width: 100%;
+}
+
+.postHeader {
+  position: relative;
+}
+
+.postBody {
+
+}
+
+.postFooter {
+
+}

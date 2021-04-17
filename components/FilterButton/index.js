@@ -2,14 +2,6 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import {getSvg} from '../../util/icon-utils';
 
-const rPrimary = (props) => css`
-  color: #0079d3;
-  fill: #0079d3;
-  border: 1px solid #0079d3;
-
-  &:hover, &:focus {
-    background-color: #f5fafd;
-  }`
 
 const Button = styled.a`
   display: flex;

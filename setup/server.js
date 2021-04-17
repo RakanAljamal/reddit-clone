@@ -12,7 +12,7 @@ app.prepare().then(() => {
         // Be sure to pass `true` as the second argument to `url.parse`.
         // This tells it to parse the query portion of the URL.
         handle(req, res)
-    }).listen(3080, (err) => {
+    }).listen(3000, (err) => {
         if (err) throw err
         console.log('> Ready on http://localhost:3000')
     })

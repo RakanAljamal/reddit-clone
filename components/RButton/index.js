@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
-
+import {getSvg} from '../../util/icon-utils';
 
 const rPrimary = (props) => css`
   color: #0079d3;
@@ -39,12 +39,27 @@ const rSecondary = (props) => css`
   ${props.fullWidth && css`
 
     display: inline-block;
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 
-`}
+  `}
 `;
+const rJoin = css`
+  ${rSecondary};
+  padding-inline: initial;
+  padding: 1px 6px;
+  align-items: center;
+  display: flex;
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-family: Noto Sans, Arial, sans-serif;
+  justify-content: space-between;
+  vertical-align: baseline;
+  width: 62px;
 
+
+`
 const Button = styled.a`
   padding: 6px 15px;
   margin: 0.25rem;
@@ -60,18 +75,27 @@ const Button = styled.a`
     cursor: pointer;
   }
 
+  & > svg {
+    fill: #fff;
+    height: 20px;
+    width: 24px;
+  }
 
   ${props => props.type === 'rPrimary' && css`${rPrimary}`}
   ${props => props.type === 'rSecondary' && css`${rSecondary}`}
   ${props => props.type === 'rShadow' && css`${rShadow}`}
+  ${props => props.type === 'rJoin' && css`${rJoin}`}
 
 `
 
 
 const RButton = (props) => {
-    return <Button {...props}>
-        <span>{props.title}</span>
-    </Button>
+    return <React.Fragment>
+        <Button {...props}>
+            {props.type === 'rJoin' && getSvg('Plus')}
+            <span>{props.title}</span>
+        </Button>
+    </React.Fragment>
 }
 
 export default RButton;
