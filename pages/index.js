@@ -1,9 +1,12 @@
 import HomePage from "../components/HomePage";
+import {DarkModeProvider} from '../components/DarkModeProvide/index';
 
 export default function Home(props) {
     return (
         <div>
-            <HomePage {...props}/>
+            <DarkModeProvider>
+                <HomePage {...props}/>
+            </DarkModeProvider>
         </div>
     )
 }

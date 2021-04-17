@@ -4,8 +4,12 @@ import Navbar from "../Navbar";
 import Trending from "../Trending";
 import SideSection from "../SideSection/SideSection";
 import MainSection from "../MainSection";
+import {DarkModeContext} from "../DarkModeProvide";
 
 const HomePage = ({trending, subreddits, posts}) => {
+    const {dark, toggleDark} = React.useContext(DarkModeContext);
+
+    console.log('Calling it from HomePage', dark);
     return <React.Fragment>
         <Navbar/>
         <div className={styles.homePage}>
