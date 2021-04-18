@@ -8,6 +8,58 @@ const rPrimary = (props) => css`
   &:hover, &:focus {
     background-color: #f5fafd;
   }`
+
+
+const authButton = (props) => css`
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #0079d3;
+  color: #0079d3;
+  text-align: center;
+  border-radius: 4px;
+  padding: 1px;
+  position: relative;
+  
+  &:hover {
+    background: red;
+  }
+  
+  &:hover, &:focus {
+    background-color: #3394dc;
+    color: #fff;
+  }
+  & > span{
+    align-self: center;
+    padding: 15px 16px 15px 50px;
+    }
+  & > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    height: 46px;
+    width: 46px;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 25px;
+    transform: translate(-50%,-50%);
+    
+  }
+  
+  & > div > div {
+    height: 20px;
+    width: 20px;
+    ${props => props.image && `background: url(${props.image}) center center/cover no-repeat;`}
+    background-color: #fff;
+
+  }
+
+  
+`
+
+
 const rShadow = (props) => css`
   padding: 6px 8px;
   color: #0079d3;
@@ -84,6 +136,8 @@ const Button = styled.a`
   ${props => props.type === 'rSecondary' && css`${rSecondary}`}
   ${props => props.type === 'rShadow' && css`${rShadow}`}
   ${props => props.type === 'rJoin' && css`${rJoin}`}
+  ${props => props.type === 'Apple' && css`${authButton}`}
+  ${props => props.type === 'Google' && css`${authButton}`}
 
 `
 

@@ -1,65 +1,46 @@
-import DialogTitle from "@material-ui/core/DialogTitle";
-import Dialog from "@material-ui/core/Dialog";
-import MuiDialogContent from "@material-ui/core/DialogContent";
-import Typography from "@material-ui/core/Typography";
+import DialogContent from "@material-ui/core/DialogContent";
 import React from "react";
 import styles from './styles.module.scss';
-import { withStyles,makeStyles } from '@material-ui/core/styles';
 import RButton from "../RButton";
+import TextField from '@material-ui/core/TextField';
+import { Dialog } from "./custom-styled";
+
+
+
 
 const LoginDialog = ({on, hide}) => {
 
 
-    const useStyles = makeStyles(() => ({
-        root: {
-            '& .MuiDialog-paperWidthSm': {maxWidth:'850px'},
-            '& .MuiList-padding': { paddingTop: '0px', paddingBottom: '0px' },
-            '& .MuiList-root': { display: 'block' },
-            '& .MuiListItem-root': { padding: 0 },
-            '& .MuiPaper-root': { display:'flex',flexDirection:'row' }
-        }
-    }));
-
-    const classes = useStyles();
-
-
-    const DialogContent = withStyles((theme) => ({
-        root: {
-            display:"flex",
-            flexDirection:'column',
-            justifyContent:"space-around",
-            height: '650px',
-            width: '850px'
-        },
-    }))(MuiDialogContent);
-
-    return <Dialog onClose={hide} aria-labelledby="customized-dialog-title" open={on} className={classes.root}>
-        <div className={styles.stepArt} />
+    return <Dialog onClose={hide} aria-labelledby="customized-dialog-title" open={on}>
+        <div className={styles.stepArt}/>
         <DialogContent dividers>
-            <Typography gutterBottom>
-                Login
-            </Typography>
-            <Typography>
-                <span>By continuing, you agree to our User Agreement and Privacy Policy </span>
-            </Typography>
-            <Typography>
-                <RButton type='rPrimary' title='sign in'/>
-                <RButton type='rPrimary' title='sign in'/>
-            </Typography>
-            <Typography>
-                Or
-            </Typography>
-            <Typography>
+            <div>
+
+                <h1 className={styles.loginLabel}>Login</h1>
+                <p className={styles.agreement}>
+                    By continuing, you agree to our <a>User Agreement</a> and <a>Privacy Policy</a>
+                </p>
+
+            </div>
+            <div className={styles.authContainer}>
+                <RButton type='Google' title='CONTINUE WITH GOOGLE'/>
+                <RButton type='Apple' title='CONTINUE WITH APPLE'/>
+            </div>
+
+            <div className={styles.separatorContainer}>
+                <span className={styles.separator}/>
+                <span className={styles.separatorText}>OR</span>
+                <span className={styles.separator} />
+            </div>
+            <div className={styles.registrationForm}>
+                <TextField label='USERNAME' variant="outlined"/>
+                <TextField label='PASSWORD' variant="outlined"/>
                 <RButton type='rSecondary' title='Log in' fullWidth/>
-            </Typography>
-            <Typography>
                 Forgot your username or password ?
-            </Typography>
-            <Typography>
                 New to Reddit? SIGN UP
-            </Typography>
-            
-            
+            </div>
+
+
         </DialogContent>
     </Dialog>;
 }

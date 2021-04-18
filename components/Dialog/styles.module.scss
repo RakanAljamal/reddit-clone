@@ -1,5 +1,57 @@
-.stepArt{
+.stepArt {
   height: 650px;
-  width: 150px;
+  width: 165px;
   background: url("https://www.redditstatic.com/accountmanager/bbb584033aa89e39bad69436c504c9bd.png ") center center/cover;
+}
+
+.registrationForm {
+  width: 280px;
+}
+
+.loginLabel {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 0;
+}
+
+.agreement{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+  margin-top: 8px;
+  
+  & > a {
+    color: #0079d3;
+    text-decoration: none;
+  }
+}
+
+
+.authContainer {
+  width: 300px;
+}
+
+.separatorContainer{
+  width: 280px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+.separator {
+  
+  width: 50%;
+  height: 0.1px;
+  border: 1px solid #f4f4f4;
+  margin: 20px;
+}
+
+.separatorText {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  color: #878a8c;
+  text-transform: uppercase;
 }
