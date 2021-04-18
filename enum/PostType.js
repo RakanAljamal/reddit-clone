@@ -1,6 +1,7 @@
 const PostType = Object.freeze({
     ShortTitleShortBody: 'ShortTitleShortBody',
-    ShortTitleWithPhoto: 'ShortTitleWithPhoto'
+    ShortTitleWithPhoto: 'ShortTitleWithPhoto',
+    ShortTitleWithLink: 'ShortTitleWithLink'
 })
 
 

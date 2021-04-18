@@ -1,5 +1,5 @@
 import HomePage from "../components/HomePage";
-import {DarkModeProvider} from '../components/DarkModeProvide/index';
+import {DarkModeProvider} from '../components/DarkModeProvider/index';
 
 export default function Home(props) {
     return (
@@ -48,7 +48,7 @@ Home.getInitialProps = async (ctx) => {
             name: 'programming'
         }],
         posts: [{
-            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            title: 'Will Google Searchbot SEO also crawl my content APIs? Or do I really need nextjs SSR? maybe u guys have a clue',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
             subreddit: {
                 name: 'nextjs',
@@ -62,7 +62,7 @@ Home.getInitialProps = async (ctx) => {
             type: 'ShortTitleWithPhoto',
             image: 'https://chrisbrownie.dev/blog/creating-a-completely-static-build-with-nextjs/nextjs.png'
         }, {
-            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
+            title: 'In his most recent stream Daniel Negreanu said that he is considering making a pogchamps-like tournament but instead of chess the game is poker\n',
             body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
             subreddit: {
                 name: 'twitch',
@@ -76,8 +76,8 @@ Home.getInitialProps = async (ctx) => {
             type: 'ShortTitleWithPhoto',
             'image': 'https://www.ginx.tv/uploads/pogchamps_3_main.jpg'
         }, {
-            title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
-            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            title: 'There was Trump-Russia collusion — and Trump pardoned the colluder',
+            body: 'https://thehill.com/opinion/white-house/548794-there-was-trump-russia-collusion-and-trump-pardoned-the-colluder',
             subreddit: {
                 name: 'nextjs',
                 logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'
@@ -87,10 +87,10 @@ Home.getInitialProps = async (ctx) => {
             comments: {
                 count: '11.4k'
             },
-            type: 'ShortTitleShortBody'
+            type: 'ShortTitleWithLink'
         }, {
             title: 'Boomer stock streamer denounces cryptocurrency and wishes failure among investors',
-            body: 'https://thehill.com/changing-america/respect/equality/548534-floridas-new-ban-on-transgender-students-in-sports-would',
+            body: 'Every public area is filthy, polluted with litter, and there are intimidating adult males loitering. I did not feel safe taking the metro They do not speak French or English. WTF that was disappointing and I regret wasting time in Paris.',
             subreddit: {
                 name: 'nextjs',
                 logo: 'https://img.favpng.com/11/24/6/reddit-woman-logo-female-png-favpng-paGQ3UP6M0u5KighTBZEvhp2w.jpg'

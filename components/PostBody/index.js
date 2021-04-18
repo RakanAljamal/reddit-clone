@@ -1,49 +1,10 @@
 import React from 'react';
-import styled from 'styled-components';
-import {formatBodyLength} from "../../util/utils";
+import {formatLink} from "../../util/utils";
 import {PostType} from "../../enum/PostType";
 import styles from './styles.module.scss';
-
-const ShortTitleShortTextPost = styled.div`
-  line-height: 22px;
-  margin: 0 8px;
-  font-family: BentonSans, sans-serif;
-  color: #222222;
-  height: 140px;
-
-  & > h3 {
-    font-family: IBMPlexSans, Arial, sans-serif;;
-    font-size: 18px;
-    font-weight: 600;
-  }
-
-  & > span {
-    font-size: 12px;
-    line-height: 16px;
-  }
-`;
-const ShortTitleWithPhotoPost = styled.div`
-  line-height: 22px;
-  font-family: BentonSans, sans-serif;
-  color: #222222;
-  height: 413px;
-
-  & > h3 {
-    font-family: IBMPlexSans, Arial, sans-serif;;
-    font-size: 18px;
-    font-weight: 600;
-    margin-left: 4px;
-    margin-bottom: 4px;
-  }
-
-  & > div {
-    margin: 0;
-    ${props => props.image && `background: url(${props.image}) center center/cover;`}
-    max-width: 100%;
-    max-height: 366px;
-    height: 100%;
-  }
-`;
+import {faExternalLinkAlt, faLink} from "@fortawesome/free-solid-svg-icons";
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
+import {LinkedDiv, ShortTitleShortTextPost, ShortTitleWithLinkPost, ShortTitleWithPhotoPost} from "./custom-styled";
 
 const getPost = (props) => {
     console.log(props)
@@ -51,19 +12,32 @@ const getPost = (props) => {
         case PostType.ShortTitleShortBody:
             return <ShortTitleShortTextPost>
                 <h3>{props.title}</h3>
-                {/*<h3>{title}</h3>*/}
-                <span>{formatBodyLength(props.body)}</span>
+                <span>{props.body}</span>
             </ShortTitleShortTextPost>
         case PostType.ShortTitleWithPhoto:
             return <ShortTitleWithPhotoPost {...props} >
                 <h3>{props.title}</h3>
                 <div/>
             </ShortTitleWithPhotoPost>
+        case PostType.ShortTitleWithLink:
+            return <ShortTitleWithLinkPost {...props} >
+                <div>
+                    <h3>{props.title}</h3>
+                    <a href={props.body}>{formatLink(props.body)} <FontAwesomeIcon icon={faExternalLinkAlt}/>
+                    </a>
+
+                </div>
+                <div className={styles.postWithLinkContainer}>
+                    <LinkedDiv>
+                        <FontAwesomeIcon icon={faLink}/>
+                        <FontAwesomeIcon icon={faExternalLinkAlt}/>
+                    </LinkedDiv>
+                </div>
+            </ShortTitleWithLinkPost>
     }
 };
 
 const PostBody = (props) => {
-
     return <div className={styles.postBodyContainer}>
         {getPost(props)}
     </div>

@@ -2,7 +2,7 @@ import React from "react";
 import styles from './style.module.scss';
 import Subreddit from "../Subreddit";
 import RButton from '../RButton/index';
-import {DarkModeContext} from "../DarkModeProvide";
+import {DarkModeContext} from "../DarkModeProvider";
 
 const SideSection = ({title, subreddits}) => {
     const {dark, toggleDark} = React.useContext(DarkModeContext);
@@ -14,7 +14,6 @@ const SideSection = ({title, subreddits}) => {
 
     console.log('Calling it from SideSection component', dark);
     return <div className={styles.topSection}>
-        <button onClick={(e) => handleDarkModeToggle(e)}>Click me</button>
         <div className={styles.topBanner}>
             <a className={styles.topBannerText} href="#">Top Programming Communities</a>
         </div>
