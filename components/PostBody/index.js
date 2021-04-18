@@ -15,10 +15,13 @@ const getPost = (props) => {
                 <span>{props.body}</span>
             </ShortTitleShortTextPost>
         case PostType.ShortTitleWithPhoto:
-            return <ShortTitleWithPhotoPost {...props} >
-                <h3>{props.title}</h3>
-                <div/>
-            </ShortTitleWithPhotoPost>
+
+            return <div>
+                <h3 className={styles.title}>{props.title}</h3>
+                <ShortTitleWithPhotoPost {...props} >
+                    <div/>
+                </ShortTitleWithPhotoPost>
+            </div>
         case PostType.ShortTitleWithLink:
             return <ShortTitleWithLinkPost {...props} >
                 <div>

@@ -64,24 +64,15 @@ const ShortTitleShortTextPost = styled(Post)`
 
 `;
 const ShortTitleWithPhotoPost = styled.div`
-  height: 413px;
-
-  & > h3 {
-    font-family: unset;
-    -webkit-font-smoothing: antialiased;
-    font-size: 18px;
-    font-weight: 500;
-    margin-left: 4px;
-    margin-bottom: 4px;
-  }
+  height: 518px;
 
   & > div {
     margin: 0;
     ${props => props.image && `background: url(${props.image}) center center/cover no-repeat;`}
     max-width: 100%;
-    max-height: 366px;
     height: 100%;
   }
+
 `;
 const ShortTitleWithLinkPost = styled(Post)`
   display: flex;
