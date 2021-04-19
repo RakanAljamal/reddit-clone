@@ -4,6 +4,7 @@
   @include mainTitle
 }
 .darkTrendingTitle {
+  @include mainTitle;
   color: #d7dadc;
 }
 

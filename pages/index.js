@@ -23,7 +23,7 @@ Home.getInitialProps = async (ctx) => {
 
     return {
         trending: [{
-            image: 'https://chrisbrownie.dev/blog/creating-a-completely-static-build-with-nextjs/nextjs.png',
+            image: 'https://www.iamvishnusankar.com/static/c2510022ce0b52a21ee0443ed4f22918/next.png',
             title: 'Reddit Clone',
             description: 'This is a clone website for reddit that\'s build in nextjs'
         }, {
@@ -31,7 +31,7 @@ Home.getInitialProps = async (ctx) => {
             title: 'Prince Charles',
             description: 'Prince Charles celebrate 100 years unship with Jordan'
         }, {
-            image: 'https://chrisbrownie.dev/blog/creating-a-completely-static-build-with-nextjs/nextjs.png',
+            image: 'https://lh3.googleusercontent.com/proxy/FHKuOYYvcSJIC8q7HhS-hUfCahtnN9Gt1nU0s_qK3RuIIRszeX3gERHGdaWiZO84Qkgq1406UnDVk7-SbYxAv6OGHbnpJzGxyUxOsQ9590UkRR4DLQe4BL-5X-I3p9qDu_CsTg',
             title: 'Reddit Clone',
             description: 'This is a clone website for reddit that\'s build in nextjs'
         }, {

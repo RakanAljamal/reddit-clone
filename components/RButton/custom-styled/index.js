@@ -2,12 +2,12 @@ import styled, {css} from "styled-components";
 
 const rPrimary = (props) => css`
   color: ${props.dark ? '#fff' : '#0079d3'};
-  fill: ${props.dark ? '#fff' : '#0079d3'};
+  fill: ${props.dark ? '#fff' : '#fff'};
   background: ${props.dark && '#1a1a1b'};
   border: 1px solid ${props.dark ? '#fff' : '#0079d3'};
 
   &:hover, &:focus {
-    background-color: ${props.dark ? '#212223' : '#0079d3'};
+    background-color: ${props.dark ? '#212223' : '#f5fafd'};
   }`
 
 
