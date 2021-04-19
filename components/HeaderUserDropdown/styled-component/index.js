@@ -9,11 +9,18 @@ import {createMuiTheme, ListItemText, Switch} from "@material-ui/core";
 
 
 const StyledMenu = styled(Menu)`
-  transition: none !important;
+    margin-top: 20px;
 `;
 
 const StyledMenuItem = styled(MenuItem)`
+  &:hover {
+    background-color: #0079d3 !important;
+    color: #fff;
 
+    .MuiListItemIcon-root {
+      color: #fff;
+    }
+  }
 `;
 const RotatableNightIcon = styled(Brightness2)`
   transform: rotate(170deg);
