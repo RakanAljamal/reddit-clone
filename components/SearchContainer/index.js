@@ -1,8 +1,11 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './styles.module.scss';
+import {DarkModeContext} from "../DarkModeProvider";
 
 const SearchContainer = () => {
-    return <div className={styles.searchContainer}>
+    const {dark} = useContext(DarkModeContext);
+
+    return <div className={dark ? styles.darkSearchContainer : styles.searchContainer}>
         <label className={styles.searchLogoContainer} htmlFor="searchContainer">
             <svg className={styles.searchLogo} viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
                 <path

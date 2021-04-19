@@ -1,7 +1,13 @@
 @import "styles/mixin";
 
+
 .filterTitle {
   @include mainTitle;
+}
+
+.darkFilterTitle {
+  @include mainTitle;
+  color: #d7dadc;
 }
 
 .filterContainer {
@@ -12,6 +18,17 @@
   margin-bottom: 20px;
   align-items: center;
   padding: 10px 12px;
+}
+
+.darkFilterContainer{
+  display: flex;
+  height: 53px;
+  width: 609px;
+  background: #1a1a1b;
+  margin-bottom: 20px;
+  align-items: center;
+  padding: 10px 12px;
+  @include  darkContainer;
 }
 
 .filterBackgroundContainer {

@@ -2,9 +2,9 @@
 
 .searchContainer {
   position: relative;
-  flex-grow: 1;
   margin: 0 auto;
   background: $NAVBAR_BG_LIGHT_PRIMARY;
+  width: 650px;
 
   & > input {
     border: 1px solid $SEARCH_FIELD_BORDER;
@@ -18,6 +18,28 @@
     &:hover, &:focus {
       background: $NAVBAR_BG_LIGHT_PRIMARY;
       border: 1px solid $SEARCH_FIELD_HOVER_BORDER;
+    }
+  }
+}
+
+.darkSearchContainer{
+  position: relative;
+  margin: 0 auto;
+  background: #272729;
+  width: 650px;
+
+  & > input {
+    background: #272729;
+    height: 36px;
+    outline: none;
+    padding: 0 16px 0 40px;
+    width: 100%;
+    max-width: 680px;
+    border: none;
+    color: #f4f4f4;
+    &:hover, &:focus {
+      background: #1a1a1b;
+      border: 1px solid #fff;
     }
   }
 }

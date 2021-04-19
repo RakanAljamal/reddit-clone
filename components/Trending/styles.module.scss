@@ -3,6 +3,9 @@
 .trendingTitle {
   @include mainTitle
 }
+.darkTrendingTitle {
+  color: #d7dadc;
+}
 
 .trendingContainer {
   display: flex;

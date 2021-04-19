@@ -1,11 +1,16 @@
 import HomePage from "../components/HomePage";
 import {DarkModeProvider} from '../components/DarkModeProvider/index';
+import {useLocalStorage} from "../effects/useLocalStorage";
+import {useEffect, useState} from "react";
 
 export default function Home(props) {
+    const [darkMode] = useLocalStorage('darkModeEnabled');
+
+
     return (
         <div>
-            <DarkModeProvider>
-                <HomePage {...props}/>
+            <DarkModeProvider value={darkMode}>
+                {  <HomePage {...props}/>}
             </DarkModeProvider>
         </div>
     )

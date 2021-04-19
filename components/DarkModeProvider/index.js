@@ -1,14 +1,16 @@
 import React, {createContext} from 'react';
+import {useLocalStorage} from "../../effects/useLocalStorage";
 
 const DarkModeContext = createContext({
-    darkMode: false,
+    dark: false,
     toggleDark: () => {
     }
 })
 
-const DarkModeProvider = ({children}) => {
-    const [dark, setDark] = React.useState(false);
+const DarkModeProvider = ({value,children}) => {
+    const [dark, setDark] = React.useState(value);
     const toggleDark = (toggleValue) => {
+        console.log(toggleValue)
         setDark(toggleValue)
     }
 

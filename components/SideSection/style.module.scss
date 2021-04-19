@@ -6,6 +6,14 @@
   background: #fff;
   border-radius: 10px;
 }
+.darkTopSection {
+  height: 426px;
+  width: 288px;
+  border-radius: 10px;
+  color: #fff;
+
+  @include darkContainer;
+}
 
 .topBanner {
   border-top-left-radius: 4px;

@@ -4,8 +4,8 @@ import FilterButton from "../FilterButton";
 
 const FilterContainer = ({title}) => {
     return <div className={styles.filterBackgroundContainer}>
-        <h2 className={styles.filterTitle}>{title}</h2>
-        <div className={styles.filterContainer}>
+        <h2 className={styles.darkFilterTitle}>{title}</h2>
+        <div className={styles.darkFilterContainer}>
             <FilterButton title='Hot' icon='Hot'/>
             <FilterButton title='Everywhere' noHover showArrow/>
             <FilterButton title='Top' icon='Top' hideBackground/>

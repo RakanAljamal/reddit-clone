@@ -14,3 +14,19 @@
   background: $NAVBAR_BG_LIGHT_PRIMARY;
   z-index: 9;
 }
+
+.darkNav {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  position: fixed;
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px;
+  background: #1a1a1b;
+  color: #fff;
+  z-index: 9;
+}

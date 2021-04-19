@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useContext, useEffect} from 'react';
 import styles from './styles.module.scss';
 import {IOSSwitch, RotatableNightIcon, StyledListItemText, StyledMenu, StyledMenuItem} from "./styled-component";
 import {DonutLarge, ExitToApp, Security} from "@material-ui/icons";
@@ -6,10 +6,14 @@ import {Divider, ListItemIcon} from "@material-ui/core";
 import {useDialog} from "../../effects/useDialog";
 import LoginDialog from "../LoginDialog";
 import SignUpDialog from "../SignUpDialog";
+import {useLocalStorage} from "../../effects/useLocalStorage";
+import {DarkModeContext} from "../DarkModeProvider";
 
 
 const HeaderUserDropdown = () => {
+    const [checked, setChecked] = useLocalStorage('darkModeEnabled');
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const {dark,toggleDark} = useContext(DarkModeContext);
     const loginProps = useDialog();
     const signUpProps = useDialog();
     const handleClick = (event) => {
@@ -20,16 +24,19 @@ const HeaderUserDropdown = () => {
         setAnchorEl(null);
     };
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => setAnchorEl(null));
-    }, [])
+    const handleSwitchChange = (ev) => {
+        setChecked(!checked);
+        toggleDark(!checked)
+    }
+
+
 
     return <span>
         {
             loginProps.on && <LoginDialog {...loginProps} showOtherDialog={signUpProps.show}/>}
         {signUpProps.on && <SignUpDialog {...signUpProps} showOtherDialog={loginProps.show}/>}
 
-        <div onClick={handleClick} className={styles.headerUserDropdownContainer}>
+        <div onClick={handleClick} className={dark ? styles.darkHeaderUserDropdownContainer:styles.headerUserDropdownContainer}>
             <svg className={styles.profileIcon} viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
                 <g fill="inherit">
                     <path
@@ -54,8 +61,8 @@ const HeaderUserDropdown = () => {
                 <ListItemIcon>
                     <RotatableNightIcon fontSize="small"/>
                 </ListItemIcon>
-                <StyledListItemText primary="Night mode"/>
-                <IOSSwitch/>
+                <StyledListItemText primary="Dark mode"/>
+                <IOSSwitch checked={checked} onChange={handleSwitchChange}/>
             </StyledMenuItem>
             <h3 className={styles.menuTitle}>MORE STUFF</h3>
             <StyledMenuItem>

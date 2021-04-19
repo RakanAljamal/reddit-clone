@@ -7,7 +7,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {LinkedDiv, ShortTitleShortTextPost, ShortTitleWithLinkPost, ShortTitleWithPhotoPost} from "./custom-styled";
 
 const getPost = (props) => {
-    console.log(props)
     switch (props.type) {
         case PostType.ShortTitleShortBody:
             return <ShortTitleShortTextPost>

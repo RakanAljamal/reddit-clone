@@ -8,11 +8,22 @@
   fill: #FFFFFF;
 }
 
-.logoContainer {
-  flex-grow: 0.5;
-}
 
 .homeLogo {
   width: 130px;
   height: 32px;
+}
+.darkHomeLogo {
+  width: 65px;
+  height: 32px;
+}
+
+.darkLogoContainer{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.homeLogoLabel{
+  height: 20px;
+  width: 57px;
 }

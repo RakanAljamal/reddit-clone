@@ -1,12 +1,13 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 const rPrimary = (props) => css`
-  color: #0079d3;
-  fill: #0079d3;
-  border: 1px solid #0079d3;
+  color: ${props.dark ? '#fff' : '#0079d3'};
+  fill: ${props.dark ? '#fff' : '#0079d3'};
+  background: ${props.dark && '#1a1a1b'};
+  border: 1px solid ${props.dark ? '#fff' : '#0079d3'};
 
   &:hover, &:focus {
-    background-color: #f5fafd;
+    background-color: ${props.dark ? '#212223' : '#0079d3'};
   }`
 
 
@@ -80,9 +81,9 @@ const rShadow = (props) => css`
 
 
 const rSecondary = (props) => css`
-  color: #FFF;
-  background-color: #0079d3;
-  border: 1px solid #0079d3;
+  color: ${props.dark ? '#1a1a1b' : '#FFF'};
+  background-color: ${props.dark ? '#d7dadc' : '#0079d3'};
+  border: ${!props.dark && '1px solid #0079d3'};
 
   &:hover, &:focus {
     opacity: .9;
@@ -97,7 +98,7 @@ const rSecondary = (props) => css`
   `}
 
   ${props.size && css`
-    ${props.size==='L' && 'padding: 10px'}
+    ${props.size === 'L' && 'padding: 10px'}
 
   `}
 `;
@@ -148,4 +149,4 @@ const Button = styled.a`
 
 `
 
-export { Button }
+export {Button}
