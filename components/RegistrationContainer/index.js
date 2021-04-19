@@ -18,7 +18,9 @@ const RegistrationContainer = ({}) => {
         <RButton {...loginToggleProps()} type="rPrimary" title="Log In"/>
         <RButton {...signUpToggleProps()}type="rSecondary" title="Sign Up"/>
 
-        <HeaderUserDropdown />
+        <div>
+            <HeaderUserDropdown />
+        </div>
     </div>
 }
 
