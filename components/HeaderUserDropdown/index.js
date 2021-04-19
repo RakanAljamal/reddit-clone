@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import styles from './styles.module.scss';
 import {IOSSwitch, RotatableNightIcon, StyledListItemText, StyledMenu, StyledMenuItem} from "./styled-component";
 import {DonutLarge, ExitToApp, Security} from "@material-ui/icons";
@@ -20,6 +20,9 @@ const HeaderUserDropdown = () => {
         setAnchorEl(null);
     };
 
+    useEffect(() => {
+        window.addEventListener('scroll', () => setAnchorEl(null));
+    }, [])
 
     return <span>
         {
@@ -39,6 +42,7 @@ const HeaderUserDropdown = () => {
             </svg>
         </div>
         <StyledMenu
+            disableScrollLock
             id="customized-menu"
             anchorEl={anchorEl}
             keepMounted
