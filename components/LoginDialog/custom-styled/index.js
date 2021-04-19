@@ -29,7 +29,7 @@ const Dialog = styled(MuiDialog)`
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-
+    padding: 45px 26px;
     & > h1 {
       font-size: 18px;
       font-weight: 500;
@@ -37,6 +37,29 @@ const Dialog = styled(MuiDialog)`
       margin: 0px 0;
     }
   }
+  
+  
+  & .MuiFormControl-root {
+    width: 100%;
+    margin: 5px 0;
+  }
+  
+  & .MuiFormLabel-root {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .5px;
+  }
+  
+  & .MuiFormLabel-root.Mui-focused {
+    transform: translate(17px,5px) scale(0.75);
+    color: #999;
+
+  }
+
+  .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
+    border:#999 2px solid;
+  }
+  
 `;
 
 

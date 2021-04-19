@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, { css } from "styled-components";
 
 const rPrimary = (props) => css`
   color: #0079d3;
@@ -20,19 +20,21 @@ const authButton = (props) => css`
   border-radius: 4px;
   padding: 1px;
   position: relative;
-  
+
   &:hover {
     background: red;
   }
-  
+
   &:hover, &:focus {
     background-color: #3394dc;
     color: #fff;
   }
-  & > span{
+
+  & > span {
     align-self: center;
     padding: 15px 16px 15px 50px;
-    }
+  }
+
   & > div {
     display: flex;
     align-items: center;
@@ -44,10 +46,10 @@ const authButton = (props) => css`
     position: absolute;
     top: 50%;
     left: 25px;
-    transform: translate(-50%,-50%);
-    
+    transform: translate(-50%, -50%);
+
   }
-  
+
   & > div > div {
     height: 20px;
     width: 20px;
@@ -56,7 +58,7 @@ const authButton = (props) => css`
 
   }
 
-  
+
 `
 
 
@@ -91,6 +93,11 @@ const rSecondary = (props) => css`
     display: inline-block;
     width: 100%;
     text-align: center;
+
+  `}
+
+  ${props.size && css`
+    ${props.size==='L' && 'padding: 10px'}
 
   `}
 `;
@@ -141,4 +148,4 @@ const Button = styled.a`
 
 `
 
-export {Button}
+export { Button }
