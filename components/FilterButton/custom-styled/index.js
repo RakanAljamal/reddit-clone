@@ -12,13 +12,14 @@ const Button = styled.a`
   letter-spacing: unset;
   line-height: 17px;
   text-transform: unset;
-  color: #0079d3;
-  background: #f6f7f8;
+  color: ${props => props.dark ? '#d7dadc' : '#0079d3'};
+  background: ${props => props.dark ? '#272729' : '#f6f7f8'};
   align-items: center;
 
 
   & > svg {
-    fill: #0079d3;
+
+    fill: ${props => props.dark ? '#d7dadc' : '#0079d3'};
     height: 20px;
     width: 24px;
   }
@@ -34,12 +35,12 @@ const Button = styled.a`
   }
 
   ${props => props.hideBackground && css`
-    background: #fff;
+    background: ${props=>props.dark?'#1a1a1b':'#fff'};
   `}
 
   ${props => !props.noHover && css`
     &:hover {
-      background: #d3d4d5;
+      background: ${props.dark ? '#353537' : '#d3d4d5'};
       opacity: 0.8;
       z-index: 1;
     }

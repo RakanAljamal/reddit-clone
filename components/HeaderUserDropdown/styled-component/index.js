@@ -5,7 +5,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import React from "react";
 import styled from 'styled-components';
 import {Brightness2} from "@material-ui/icons";
-import {ListItemText, Switch} from "@material-ui/core";
+import {createMuiTheme, ListItemText, Switch} from "@material-ui/core";
+
 
 const StyledMenu = styled(Menu)`
   transition: none !important;
@@ -81,4 +82,16 @@ const IOSSwitch = withStyles((theme) => ({
     );
 });
 
-export {StyledMenu, StyledMenuItem, StyledListItemText, RotatableNightIcon, IOSSwitch}
+const mainTheme = createMuiTheme({
+    palette: {
+        type: "light"
+    }
+});
+
+const darkTheme = createMuiTheme({
+    palette: {
+        type: "dark"
+    }
+});
+
+export {StyledMenu, StyledMenuItem, StyledListItemText, RotatableNightIcon, IOSSwitch, mainTheme, darkTheme}

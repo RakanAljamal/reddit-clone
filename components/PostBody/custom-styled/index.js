@@ -6,7 +6,7 @@ const LinkedDiv = styled.div`
   position: relative;
   width: 143px;
   height: 98px;
-  border: 1px solid rgb(0, 121, 211);
+  border: 1px solid ${props=>props.dark ? 'rgb(255,255,255)':'rgb(0, 121, 211)'};
   border-radius: 4px;
 
   & > div {
@@ -19,7 +19,7 @@ const LinkedDiv = styled.div`
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    color: rgb(0, 121, 211);
+    color: ${props=>props.dark ? 'rgb(255,255,255)':'rgb(0, 121, 211)'};
     font-size: 20px;
   }
 
@@ -31,7 +31,7 @@ const LinkedDiv = styled.div`
     border-top-left-radius: 4px;
     padding: 4px;
     font-size: 16px;
-    background: rgb(0, 121, 211);
+    background: ${props=>props.dark ? 'rgb(255,255,255)':'rgb(0, 121, 211)'};
   }
 
 `;
@@ -46,7 +46,8 @@ const Post = styled.div`
   & > h3 {
     font-family: IBMPlexSans, Arial, sans-serif;;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 500;
+    ${props=>props.dark && 'color: #d7dadc;'}
   }
 `
 
@@ -58,6 +59,7 @@ const ShortTitleShortTextPost = styled(Post)`
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+    color: ${props=>props.dark && '#d7dadc'};
   }
 
   linear-gradient(180deg, #000 60%, transparent);
@@ -82,7 +84,7 @@ const ShortTitleWithLinkPost = styled(Post)`
     font-size: 12px;
     font-weight: 400;
     line-height: 16px;
-    color: #0079d3;
+    color: ${props=>props.dark ? '#4fbcff' : '#0079d3'};
 
     &:hover {
       text-decoration: underline;
@@ -93,7 +95,7 @@ const ShortTitleWithLinkPost = styled(Post)`
     border-top-left-radius: 4px;
     padding: 4px;
     font-size: 16px;
-    color: rgb(0, 121, 211);
+    color: ${props=>props.dark ? 'rgb(255,255,255)' : 'rgb(0, 121, 211)'};
   }
 `;
 

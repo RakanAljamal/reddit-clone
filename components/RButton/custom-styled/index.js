@@ -65,13 +65,13 @@ const authButton = (props) => css`
 
 const rShadow = (props) => css`
   padding: 6px 8px;
-  color: #0079d3;
+  color: ${props => props.dark ? '#d7dadc' : '#0079d3'};
   fill: #0079d3;
-  background-color: #f6f7f8;
+  background-color: ${props => props.dark ? '#272729' : '#f6f7f8'};
   display: inline-block;
 
   &:hover {
-    background-color: #E3EDF6;
+    background-color: ${props => props.dark ? '#353537' : '#E3EDF6'};
   }
 
   & > span {
@@ -135,7 +135,7 @@ const Button = styled.a`
   }
 
   & > svg {
-    fill: #fff;
+    fill: ${props => props.dark ? '#1a1a1b' : '#fff'};
     height: 19px;
     width: 19px;
   }

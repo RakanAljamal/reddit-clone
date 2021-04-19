@@ -5,12 +5,15 @@ import {useEffect, useState} from "react";
 
 export default function Home(props) {
     const [darkMode] = useLocalStorage('darkModeEnabled');
+    const [isMounted,setIsMounted] = useState(false);
 
-
+    useEffect(()=>{
+        setIsMounted(true)
+    },[])
     return (
         <div>
             <DarkModeProvider value={darkMode}>
-                {  <HomePage {...props}/>}
+                {  isMounted && <HomePage {...props}/>}
             </DarkModeProvider>
         </div>
     )

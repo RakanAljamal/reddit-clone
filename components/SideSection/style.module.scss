@@ -55,6 +55,15 @@
   }
 }
 
+.darkSubredditContainer {
+  list-style-type: none;
+  padding: 10px 20px;
+  border-bottom: thin solid #343536;
+
+  &:last-child {
+    border: none;
+  }
+}
 
 .sectionFooter {
   margin: 0 auto;

@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useContext} from "react";
 import styles from './styles.module.scss';
 import {formatSubredditName} from "../../util/utils";
+import {DarkModeContext} from "../DarkModeProvider";
 
 const showDefaultOrLogo = (logo) => {
+    const {dark} = useContext(DarkModeContext);
     return logo ?
-        <img className={styles.subredditLogo} src={logo} alt='logo'/>
+        <img className={dark ? styles.darkSubredditLogo : styles.subredditLogo} src={logo} alt='logo'/>
 
         : <svg className={styles.subRedditDefaultLogo} xmlns="http://www.w3.org/2000/svg"
                viewBox="0 0 20 20" role="presentation">
@@ -15,6 +17,7 @@ const showDefaultOrLogo = (logo) => {
 
 }
 const Subreddit = ({index, logo, name, hideArrow, hideIndex}) => {
+    const {dark} = useContext(DarkModeContext);
     return <a href='#'>
         <div className={styles.subredditItem}>
             {!hideIndex && <span>{index + 1}</span>}
@@ -25,7 +28,7 @@ const Subreddit = ({index, logo, name, hideArrow, hideIndex}) => {
                 </g>
             </svg>
             } {showDefaultOrLogo(logo)}
-            <span>{formatSubredditName(name)}</span>
+            <span className={dark && styles.darkSubredditName}>{formatSubredditName(name)}</span>
         </div>
     </a>
 }

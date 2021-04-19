@@ -1,25 +1,27 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import styles from './styles.module.scss';
 import PostHeader from "../PostHeader";
 import PostBody from "../PostBody";
 import PostFooter from "../PostFooter";
+import {DarkModeContext} from "../DarkModeProvider";
 
 
 const Post = (props) => {
-    return <span className={styles.postContainer}>
-        <div className={styles.leftSectionPost}>
-            <span className={styles.upvote}/>
+    const {dark} = useContext(DarkModeContext);
+    return <span className={dark ? styles.darkPostContainer : styles.postContainer}>
+        <div className={dark ? styles.darkLeftSectionPost : styles.leftSectionPost}>
+            <span className={dark ? styles.darkUpvote : styles.upvote}/>
             <span className={styles.votes}>20.4k</span>
-            <span className={styles.downvote}/>
+            <span className={dark ? styles.darkDownvote : styles.downvote}/>
         </div>
         <div className={styles.mainSectionPost}>
-            <div className={styles.postHeader}>
+            <div>
                 <PostHeader {...props} />
             </div>
-            <div className={styles.postBody}>
+            <div>
                 <PostBody {...props}/>
             </div>
-            <div className={styles.postFooter}>
+            <div>
                 <PostFooter {...props}/>
             </div>
 

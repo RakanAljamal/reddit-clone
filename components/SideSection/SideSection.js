@@ -15,7 +15,7 @@ const SideSection = ({title, subreddits}) => {
         <div className={styles.sectionBody}>
             <ul>
                 {subreddits.map((subreddit, index) => {
-                    return <li className={styles.subredditContainer}><Subreddit {...subreddit} index={index}/></li>
+                    return <li className={dark ? styles.darkSubredditContainer: styles.subredditContainer}><Subreddit {...subreddit} index={index}/></li>
                 })}
             </ul>
         </div>

@@ -1,8 +1,16 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import styles from './styles.module.scss';
-import {IOSSwitch, RotatableNightIcon, StyledListItemText, StyledMenu, StyledMenuItem} from "./styled-component";
+import {
+    darkTheme,
+    IOSSwitch,
+    mainTheme,
+    RotatableNightIcon,
+    StyledListItemText,
+    StyledMenu,
+    StyledMenuItem
+} from "./styled-component";
 import {DonutLarge, ExitToApp, Security} from "@material-ui/icons";
-import {Divider, ListItemIcon} from "@material-ui/core";
+import {Divider, ListItemIcon, MuiThemeProvider} from "@material-ui/core";
 import {useDialog} from "../../effects/useDialog";
 import LoginDialog from "../LoginDialog";
 import SignUpDialog from "../SignUpDialog";
@@ -13,7 +21,7 @@ import {DarkModeContext} from "../DarkModeProvider";
 const HeaderUserDropdown = () => {
     const [checked, setChecked] = useLocalStorage('darkModeEnabled');
     const [anchorEl, setAnchorEl] = React.useState(null);
-    const {dark,toggleDark} = useContext(DarkModeContext);
+    const {dark, toggleDark} = useContext(DarkModeContext);
     const loginProps = useDialog();
     const signUpProps = useDialog();
     const handleClick = (event) => {
@@ -30,13 +38,13 @@ const HeaderUserDropdown = () => {
     }
 
 
-
     return <span>
         {
             loginProps.on && <LoginDialog {...loginProps} showOtherDialog={signUpProps.show}/>}
         {signUpProps.on && <SignUpDialog {...signUpProps} showOtherDialog={loginProps.show}/>}
 
-        <div onClick={handleClick} className={dark ? styles.darkHeaderUserDropdownContainer:styles.headerUserDropdownContainer}>
+        <div onClick={handleClick}
+             className={dark ? styles.darkHeaderUserDropdownContainer : styles.headerUserDropdownContainer}>
             <svg className={styles.profileIcon} viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
                 <g fill="inherit">
                     <path
@@ -48,6 +56,7 @@ const HeaderUserDropdown = () => {
                 <path d="M14.17,9.35,10,13.53,5.83,9.35a.5.5,0,0,1,.35-.85h7.64a.5.5,0,0,1,.35.85"/>
             </svg>
         </div>
+        <MuiThemeProvider theme={dark ? darkTheme : mainTheme}>
         <StyledMenu
             disableScrollLock
             id="customized-menu"
@@ -85,6 +94,7 @@ const HeaderUserDropdown = () => {
                 <StyledListItemText primary="Log in / Sign Up"/>
             </StyledMenuItem>
         </StyledMenu>
+        </MuiThemeProvider>
     </span>
 }
 
