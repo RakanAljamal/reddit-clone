@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './styles.module.scss';
-import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import DraftsIcon from '@material-ui/icons/Drafts';
-import Brightness3Icon from '@material-ui/icons/Brightness3';
-import { StyledMenu, StyledMenuItem, RotatbleNightIcon, RotatableNightIcon } from "./styled-component";
-import { Brightness2 } from "@material-ui/icons";
-import { ListItemIcon } from "@material-ui/core";
+import {IOSSwitch, RotatableNightIcon, StyledListItemText, StyledMenu, StyledMenuItem} from "./styled-component";
+import {DonutLarge, ExitToApp, Security} from "@material-ui/icons";
+import {Divider, ListItemIcon} from "@material-ui/core";
+import {useDialog} from "../../effects/useDialog";
+import LoginDialog from "../LoginDialog";
+import SignUpDialog from "../SignUpDialog";
 
 
 const HeaderUserDropdown = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
-
+    const loginProps = useDialog();
+    const signUpProps = useDialog();
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
@@ -22,6 +22,10 @@ const HeaderUserDropdown = () => {
 
 
     return <span>
+        {
+            loginProps.on && <LoginDialog {...loginProps} showOtherDialog={signUpProps.show}/>}
+        {signUpProps.on && <SignUpDialog {...signUpProps} showOtherDialog={loginProps.show}/>}
+
         <div onClick={handleClick} className={styles.headerUserDropdownContainer}>
             <svg className={styles.profileIcon} viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
                 <g fill="inherit">
@@ -41,24 +45,33 @@ const HeaderUserDropdown = () => {
             open={Boolean(anchorEl)}
             onClose={handleClose}
         >
-            
+            <h3 className={styles.menuTitle}>VIEW OPTIONS</h3>
             <StyledMenuItem>
                 <ListItemIcon>
                     <RotatableNightIcon fontSize="small"/>
                 </ListItemIcon>
-                <ListItemText primary="Night mode"/>
+                <StyledListItemText primary="Night mode"/>
+                <IOSSwitch/>
+            </StyledMenuItem>
+            <h3 className={styles.menuTitle}>MORE STUFF</h3>
+            <StyledMenuItem>
+                <ListItemIcon>
+                    <DonutLarge fontSize="small"/>
+                </ListItemIcon>
+                <StyledListItemText primary="Reddit Coins"/>
             </StyledMenuItem>
             <StyledMenuItem>
                 <ListItemIcon>
-                    <DraftsIcon fontSize="small"/>
+                    <Security fontSize="small"/>
                 </ListItemIcon>
-                <ListItemText primary="Drafts"/>
+                <StyledListItemText primary="Reddit Premium"/>
             </StyledMenuItem>
-            <StyledMenuItem>
+            <Divider/>
+             <StyledMenuItem {...loginProps.getToggleProps()}>
                 <ListItemIcon>
-                    <InboxIcon fontSize="small"/>
+                    <ExitToApp fontSize="small"/>
                 </ListItemIcon>
-                <ListItemText primary="Inbox"/>
+                <StyledListItemText primary="Log in / Sign Up"/>
             </StyledMenuItem>
         </StyledMenu>
     </span>
