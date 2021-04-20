@@ -1,3 +1,5 @@
+@import "styles/screens";
+
 @mixin mainTitle {
   margin-bottom: 10px;
   font-size: 14px;
@@ -5,6 +7,14 @@
   line-height: 18px;
   color: #333;
   text-transform: unset;
+}
+
+@mixin trendingTitle{
+  @include mainTitle;
+  padding: 0 24px;
+  @include fullScreen{
+    padding: 0;
+  }
 }
 
 

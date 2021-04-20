@@ -1,14 +1,56 @@
 @import "styles/variables";
 @import "styles/mixin";
+@import "styles/screens";
+
 .trendingTitle {
-  @include mainTitle
+  @include trendingTitle;
 }
+
 .darkTrendingTitle {
-  @include mainTitle;
+  @include trendingTitle;
   color: #d7dadc;
 }
 
 .trendingContainer {
   display: flex;
   justify-content: space-between;
+
+
+  @include largeScreen {
+
+    padding: 0 24px;
+    & > div {
+      width: 33%;
+      height: 195PX;
+    }
+
+    & > div:last-child {
+      display: none;
+    }
+  }
+
+  @include mediumScreen {
+    padding: 0 16px;
+    & > div {
+      width: 49%;
+      height: 195PX;
+    }
+    & > div:nth-child(n+3) {
+      display: none;
+    }
+  }
+
+  @include smallScreen {
+    padding: 16px 24px;
+    & > div {
+      display: none;
+
+
+      &:first-child{
+        display: block;
+        width: 90%;
+        margin: auto;
+      }
+    }
+  }
 }
