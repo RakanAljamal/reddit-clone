@@ -1,15 +1,22 @@
 @import "styles/mixin";
 
-.topSection {
+@mixin topSection {
+  display: none;
+  @include fullScreen{
+    display: block;
+  }
   height: 426px;
   width: 288px;
-  background: #fff;
   border-radius: 10px;
 }
+
+.topSection {
+  background: #fff;
+  @include topSection;
+}
+
 .darkTopSection {
-  height: 426px;
-  width: 288px;
-  border-radius: 10px;
+  @include topSection;
   color: #fff;
 
   @include darkContainer;

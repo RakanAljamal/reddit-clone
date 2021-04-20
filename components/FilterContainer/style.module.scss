@@ -10,25 +10,39 @@
   color: #d7dadc;
 }
 
-.filterContainer {
+@mixin filterContainer {
   display: flex;
   height: 53px;
-  width: 609px;
-  background: #fff;
+  width: 100%;
   margin-bottom: 20px;
   align-items: center;
   padding: 10px 12px;
+
+  @include fullScreen {
+    width: 609px;
+  }
+
+  @include mediumScreen {
+    & > a:nth-child(n+6) {
+      display: none;
+    }
+  ;
+  }
+  @include smallScreen {
+    & > a:nth-child(n+4) {
+      display: none;
+    }
+  }
 }
 
-.darkFilterContainer{
-  display: flex;
-  height: 53px;
-  width: 609px;
-  background: #1a1a1b;
-  margin-bottom: 20px;
-  align-items: center;
-  padding: 10px 12px;
-  @include  darkContainer;
+.filterContainer {
+  @include filterContainer;
+  background: #fff;
+}
+
+.darkFilterContainer {
+  @include filterContainer;
+  @include darkContainer;
 }
 
 .filterBackgroundContainer {

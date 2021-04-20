@@ -1,3 +1,9 @@
+@import 'styles/screens';
 .mainSectionContainer {
-  max-width: 609px;
+  max-width: 100%;
+  padding: 5px 16px;
+  @include fullScreen{
+    padding: 0;
+    max-width: 609px;
+  }
 }
