@@ -8,7 +8,7 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
-    const port = 3020;
+    const port = 3040;
     createServer((req, res) => {
         // Be sure to pass `true` as the second argument to `url.parse`.
         // This tells it to parse the query portion of the URL.

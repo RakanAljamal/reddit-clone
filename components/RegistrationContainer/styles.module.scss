@@ -1,7 +1,23 @@
 @import "styles/variables";
+@import "styles/screens";
 
 .registrationContainer {
+  a {
+    display: none;
+  }
+
+  @include fullScreen {
+    a {
+      display: block;
+    }
+    margin-right: 30px;
+  }
+
+  @include largeScreen {
+    a {
+      display: block;
+    }
+  }
   display: flex;
-  margin-right: 30px;
   align-items: center;
 }

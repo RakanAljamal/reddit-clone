@@ -1,19 +1,39 @@
 @import "styles/variables";
+@import "styles/screens";
 
-.searchContainer {
+@mixin searchContainer {
   position: relative;
-  margin: 0 auto;
-  background: $NAVBAR_BG_LIGHT_PRIMARY;
-  width: 650px;
+  @include fullScreen {
+    margin: 0 auto;
+  }
+  width: 50%;
 
   & > input {
-    border: 1px solid $SEARCH_FIELD_BORDER;
-    background: $SEARCH_FIELD;
     height: 36px;
     outline: none;
     padding: 0 16px 0 40px;
     width: 100%;
     max-width: 680px;
+
+
+  }
+  @include mediumScreen {
+    width: 65%;
+  }
+
+  @include smallScreen {
+    width: 65%;
+  }
+}
+
+.lightSearchContainer {
+  @include searchContainer;
+
+  background: $NAVBAR_BG_LIGHT_PRIMARY;
+
+  & > input {
+    border: 1px solid $SEARCH_FIELD_BORDER;
+    background: $SEARCH_FIELD;
 
     &:hover, &:focus {
       background: $NAVBAR_BG_LIGHT_PRIMARY;
@@ -22,21 +42,15 @@
   }
 }
 
-.darkSearchContainer{
-  position: relative;
-  margin: 0 auto;
+.darkSearchContainer {
+  @include searchContainer;
   background: #272729;
-  width: 650px;
 
   & > input {
     background: #272729;
-    height: 36px;
-    outline: none;
-    padding: 0 16px 0 40px;
-    width: 100%;
-    max-width: 680px;
-    border: none;
     color: #f4f4f4;
+    border: none;
+
     &:hover, &:focus {
       background: #1a1a1b;
       border: 1px solid #fff;

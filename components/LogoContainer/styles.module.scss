@@ -1,4 +1,5 @@
 @import "styles/variables";
+@import "styles/screens";
 
 .st0 {
   fill: #FF4500;
@@ -10,20 +11,41 @@
 
 
 .homeLogo {
-  width: 130px;
   height: 32px;
+  width: 65px;
+
+  @include fullScreen{
+    width: 130px;
+  }
 }
+
 .darkHomeLogo {
   width: 65px;
   height: 32px;
 }
 
-.darkLogoContainer{
+.darkLogoContainer {
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
-.homeLogoLabel{
-  height: 20px;
-  width: 57px;
+
+@mixin homeLogoLabel {
+  display: none;
+  @include fullScreen {
+    display: block;
+    height: 20px;
+    width: 57px;
+  }
 }
+.lightHomeLogoLabel {
+  @include homeLogoLabel;
+}
+
+.darkHomeLogoLabel{
+  @include homeLogoLabel;
+  & > g {
+    fill: #FFF;
+  }
+}
+

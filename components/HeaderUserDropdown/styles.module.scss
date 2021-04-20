@@ -1,7 +1,32 @@
+@import "styles/screens";
+
 .profileIcon {
   height: 20px;
   width: 20px;
   fill: #878a8c;
+}
+
+@mixin headerUserDropdownContainer {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  outline: none;
+  padding: 2px 0;
+  min-height: 32px;
+  border: none;
+
+  @include fullScreen {
+    width: 70px;
+  }
+
+  @include largeScreen {
+    width: 70px;
+  }
+
+  &:hover, &:focus {
+    border-radius: 4px;
+  }
 }
 
 .arrowIcon {
@@ -10,43 +35,27 @@
   fill: #878a8c;
 }
 
-.headerUserDropdownContainer {
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  outline: none;
+.lightHeaderUserDropdownContainer {
+  @include headerUserDropdownContainer;
+
   background: #fff;
-  padding: 2px 0;
-  min-height: 32px;
-  width: 70px;
-  border: none;
 
   &:hover, &:focus {
     border: 1px solid #edeff1;
-    border-radius: 4px;
   }
 }
 
 .darkHeaderUserDropdownContainer {
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  outline: none;
+  @include headerUserDropdownContainer;
+
   background: #1a1a1b;
-  padding: 2px 0;
-  min-height: 32px;
-  width: 70px;
-  border: none;
 
   &:hover, &:focus {
     border: 1px solid #343536;
-    border-radius: 4px;
   }
 }
 
-.menuTitle {  
+.menuTitle {
   font-size: 10px;
   font-weight: 700;
   letter-spacing: .5px;

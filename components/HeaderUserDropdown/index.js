@@ -44,7 +44,7 @@ const HeaderUserDropdown = () => {
         {signUpProps.on && <SignUpDialog {...signUpProps} showOtherDialog={loginProps.show}/>}
 
         <div onClick={handleClick}
-             className={dark ? styles.darkHeaderUserDropdownContainer : styles.headerUserDropdownContainer}>
+             className={dark ? styles.darkHeaderUserDropdownContainer : styles.lightHeaderUserDropdownContainer}>
             <svg className={styles.profileIcon} viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
                 <g fill="inherit">
                     <path
