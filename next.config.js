@@ -1,7 +1,7 @@
 const withSass = require('@zeit/next-sass')
-
+const env = require('dotenv').config()?.parsed;
 const config = {
-    webpack(config, { isServer }) {
+    webpack(config, {isServer}) {
         config.module.rules.push({
             test: /\.svg$/,
             use: ['@svgr/webpack'],
@@ -15,12 +15,12 @@ const config = {
         }
 
 
-
         return config;
     }
 };
 
 module.exports = module.exports = withSass({
+    env,
     ...config,
     cssModules: true,
     cssLoaderOptions: {
