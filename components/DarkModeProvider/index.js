@@ -10,7 +10,6 @@ const DarkModeContext = createContext({
 const DarkModeProvider = ({value,children}) => {
     const [dark, setDark] = React.useState(value);
     const toggleDark = (toggleValue) => {
-        console.log(toggleValue)
         setDark(toggleValue)
     }
 

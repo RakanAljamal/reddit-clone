@@ -10,7 +10,6 @@ import {GlobalStyle, HomeStyled} from "./styled-component";
 
 const HomePage = ({trending, subreddits, posts}) => {
     const {dark, toggleDark} = React.useContext(DarkModeContext);
-    console.log(dark)
     return <React.Fragment>
         <GlobalStyle dark={dark}/>
         <Navbar/>

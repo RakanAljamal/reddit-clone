@@ -10,7 +10,6 @@ const Trending = ({title, data}) => {
         setIsMount(true);
     },[])
 
-    console.log(dark);
     return isMount && <React.Fragment>
 
         <div className={dark ? styles.darkTrendingTitle : styles.trendingTitle}>{title}</div>

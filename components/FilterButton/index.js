@@ -6,7 +6,6 @@ import {DarkModeContext} from "../DarkModeProvider";
 
 const FilterButton = (props) => {
     const {dark} = useContext(DarkModeContext);
-    console.log(dark);
     return <Button {...props} dark={dark}>
         {props.icon && getSvg(props.icon)}
         <span>{props.title}</span>

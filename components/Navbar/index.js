@@ -12,7 +12,6 @@ const Navbar = () => {
         setIsMounted(true)
     }, [])
 
-    console.log(dark)
     return isMounted && <div className={dark? styles.darkNav : styles.nav}>
         <LogoContainer/>
         <SearchContainer/>

@@ -16,17 +16,17 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [ 15.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm ci
-    - name: NextJS Build
-    - run: NODE_ENV=production npm run server       
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm ci
+      - name: NextJS Build
+      - run: NODE_ENV=production npm run server
 
      

@@ -2,19 +2,26 @@ import HomePage from "../components/HomePage";
 import {DarkModeProvider} from '../components/DarkModeProvider/index';
 import {useLocalStorage} from "../effects/useLocalStorage";
 import {useEffect, useState} from "react";
+import client from "../graphql/apollo";
+import {ApolloProvider} from "@apollo/client/react";
+
+
 
 export default function Home(props) {
     const [darkMode] = useLocalStorage('darkModeEnabled');
-    const [isMounted,setIsMounted] = useState(false);
+    const [isMounted, setIsMounted] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         setIsMounted(true)
-    },[])
+    }, [])
     return (
         <div>
-            <DarkModeProvider value={darkMode}>
-                {  isMounted && <HomePage {...props}/>}
-            </DarkModeProvider>
+            <ApolloProvider client={client}>
+                <DarkModeProvider value={darkMode}>
+                    {isMounted && <HomePage {...props}/>}
+                </DarkModeProvider>
+            </ApolloProvider>
+
         </div>
     )
 }
