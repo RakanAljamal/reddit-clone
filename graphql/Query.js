@@ -1,6 +1,8 @@
 import {gql} from '@apollo/client';
 
-const GET_POSTS = gql`{
+const GET_POSTS = gql`
+
+    query {
         posts{
             title
             content
@@ -11,8 +13,19 @@ const GET_POSTS = gql`{
                 name
                 logo
             }
+            type
         }
-}`
+    }
+`;
 
+const GET_TRENDING = gql`
+    query {
+        trending{
+            title
+            description
+            image
+        }
+    }
+`;
 
-export {GET_POSTS};
+export {GET_POSTS, GET_TRENDING};

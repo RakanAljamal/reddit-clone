@@ -6,7 +6,6 @@ import {formatUserName} from "../../util/utils";
 
 const PostHeader = ({subreddit, author, date}) => {
 
-    console.log(subreddit);
     return <div className={styles.postHeader}>
         <Subreddit hideArrow hideIndex {...subreddit} />
         <span className={styles.separator}>.</span>

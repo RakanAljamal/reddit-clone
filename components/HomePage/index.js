@@ -12,12 +12,6 @@ import {GET_POSTS} from "../../graphql/Query";
 const HomePage = ({trending, subreddits, posts}) => {
     const {data,error, loading} = useQuery(GET_POSTS);
 
-    if(error){
-        console.log(error);
-    }
-    if (!loading) {
-        console.log(data);
-    }
     const {dark, toggleDark} = React.useContext(DarkModeContext);
     return !loading && <React.Fragment>
         <GlobalStyle dark={dark}/>
