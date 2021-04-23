@@ -28,7 +28,7 @@ const Subreddit = ({index, logo, name, hideArrow, hideIndex}) => {
                 </g>
             </svg>
             } {showDefaultOrLogo(logo)}
-            <span className={dark && styles.darkSubredditName}>{formatSubredditName(name)}</span>
+            <span className={dark ? styles.darkSubredditName:undefined}>{formatSubredditName(name)}</span>
         </div>
     </a>
 }

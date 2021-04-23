@@ -5,12 +5,12 @@ import styles from './styles.module.scss';
 
 const PostFooter = ({comments}) => {
 
-    const {count} = comments;
+    // const {count} = comments;
 
     return <div className={styles.postFooter}>
         <div className={styles.comment}>
             <FontAwesomeIcon icon={faCommentAlt} flip={"horizontal"}/>
-            <span>{count} Comments</span>
+            <span>20.4k Comments</span>
         </div>
         <div className={styles.share}>
             <FontAwesomeIcon icon={faShare}/>

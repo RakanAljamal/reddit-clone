@@ -5,19 +5,28 @@ import Trending from "../Trending";
 import SideSection from "../SideSection/SideSection";
 import MainSection from "../MainSection";
 import {DarkModeContext} from "../DarkModeProvider";
-import Home from "../../pages";
-import {GlobalStyle, HomeStyled} from "./styled-component";
+import {GlobalStyle} from "./styled-component";
+import {useQuery} from "@apollo/client";
+import {GET_POSTS} from "../../graphql/Query";
 
 const HomePage = ({trending, subreddits, posts}) => {
+    const {data,error, loading} = useQuery(GET_POSTS);
+
+    if(error){
+        console.log(error);
+    }
+    if (!loading) {
+        console.log(data);
+    }
     const {dark, toggleDark} = React.useContext(DarkModeContext);
-    return <React.Fragment>
+    return !loading && <React.Fragment>
         <GlobalStyle dark={dark}/>
         <Navbar/>
         <div className={styles.homePage}>
             <Trending title='Trending Today' data={trending}/>
 
             <div className={styles.mainPageContainer}>
-                <MainSection filterTitle='Popular posts' posts={posts}/>
+                <MainSection filterTitle='Popular posts' posts={data.posts}/>
                 <SideSection subreddits={subreddits}/>
             </div>
         </div>

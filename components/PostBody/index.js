@@ -8,12 +8,13 @@ import {LinkedDiv, ShortTitleShortTextPost, ShortTitleWithLinkPost, ShortTitleWi
 import {DarkModeContext} from "../DarkModeProvider";
 
 const getPost = (props) => {
+    console.log(props);
     const {dark}  = useContext(DarkModeContext);
-    switch (props.type) {
+    switch (props.type || 'ShortTitleShortBody') {
         case PostType.ShortTitleShortBody:
             return <ShortTitleShortTextPost dark={dark}>
                 <h3>{props.title}</h3>
-                <span>{props.body}</span>
+                <span>{props.content}</span>
             </ShortTitleShortTextPost>
         case PostType.ShortTitleWithPhoto:
 
