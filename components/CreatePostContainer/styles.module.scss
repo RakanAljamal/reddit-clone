@@ -1,0 +1,65 @@
+@import "styles/screens";
+.darkCreatePostContainer {
+  padding: 8px;
+  background: #1a1a1b;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > div > input {
+    padding-left: 10px;
+  }
+
+  @include smallScreen{
+    & > div  {
+      max-width: 60% ;
+    }
+  }
+}
+
+.lightCreatePostContainer {
+  padding: 8px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  & > div > input {
+    padding: 0 16px 0 10px !important;
+  }
+
+  @include smallScreen{
+    & > div  {
+      max-width: 60% ;
+    }
+  }
+}
+
+.defaultProfileLogo {
+  height: 38px;
+  width: 38px;
+  fill: #fff;
+  background: #818384;
+  border-radius: 50%;
+}
+
+.lightCreatePostLogo {
+  margin: 0 5px;
+  height: 20px;
+  width: 20px;
+  fill: #0079d3;
+}
+
+.darkCreatePostLogo {
+  margin: 0 5px;
+  height: 20px;
+  width: 20px;
+  fill: #fff;
+}
+
+.createUrlLogo {
+  margin: 0 5px;
+  height: 20px;
+  width: 20px;
+  fill: #818384;
+}
