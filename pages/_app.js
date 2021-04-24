@@ -5,15 +5,16 @@ import {useLocalStorage} from "../effects/useLocalStorage";
 import React, {useState} from "react";
 import {DarkModeProvider} from "../components/DarkModeProvider";
 import Navbar from "../components/Navbar";
+import ChatBox from "../components/Chat";
 
 function MyApp({Component, pageProps}) {
     const [darkMode] = useLocalStorage('darkModeEnabled');
-    const [isMounted, setIsMounted] = useState(false);
 
     return <ApolloProvider client={client}>
         <DarkModeProvider value={darkMode}>
             <Navbar/>
             <Component {...pageProps} />
+            <ChatBox />
         </DarkModeProvider>
     </ApolloProvider>
 }

@@ -2,8 +2,7 @@ import React, {useContext} from 'react';
 import SearchContainer from "../SearchContainer";
 import styles from './styles.module.scss';
 import {DarkModeContext} from "../DarkModeProvider";
-import useScreen from "../../effects/useScreen";
-
+import Link from 'next/link';
 
 const CreateUrlLogo = () => {
     return <svg className={styles.createUrlLogo} viewBox="0 0 20 20"
@@ -59,10 +58,15 @@ const CreatePostContainer = () => {
     const {dark} = useContext(DarkModeContext);
     return <div className={dark ? styles.darkCreatePostContainer : styles.lightCreatePostContainer}>
         <DefaultProfileLogo/>
-        <SearchContainer fullWidth hideSearchIcon placeholder={'Create Post'}/>
+        <Link href='/submit'>
+            <a className={styles.createPostSubmit}>
+                <SearchContainer fullWidth hideSearchIcon placeholder={'Create Post'}/>
+            </a>
+        </Link>
+
         <CreateImagePost dark={dark}/>
         <CreateUrlLogo/>
     </div>
 }
 
-export {CreatePostContainer as default};
+export {CreatePostContainer as default, DefaultProfileLogo};

@@ -1,0 +1,119 @@
+.chatBox {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  right: 1.875em;;
+  width: 575px;
+  height: 460px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: rgba(150, 150, 150, 0.15) 0px 0.125em 0.75em 0.125em;
+}
+
+.leftChatPanel {
+  height: 100%;
+  width: 35%;
+  border-top-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: thin solid #edeff1;
+}
+
+.chatBody {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-top-right-radius: 20px;
+  z-index: 1;
+  flex-direction: column;
+}
+
+.leftChatPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  padding: 5px 5px 5px 15px;
+
+  & > div {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    justify-content: left;
+    border-bottom: transparent;
+    color: #1c1c1c;
+  }
+
+  & > svg {
+    padding: 7px;
+  }
+}
+
+.chatUsersContainer {
+  display: flex;
+  height: calc(100% - 2.7em);
+  flex-direction: column;
+}
+
+.chatUsers{
+  display: flex;
+  flex-direction: column;
+
+}
+
+.messageHighlight{
+  padding-left: 0.50rem;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 55%;
+  & > h4 {
+    padding: 0;
+    margin: 0;
+    font-family: Noto Sans,Arial,sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+  & > span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+    font-family: Noto Sans,Arial,sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+.activeUser {
+  display: flex;
+  padding: 10px 10px;
+  background: #edeff1;
+
+  &:hover{
+    cursor: pointer;
+  }
+
+  justify-content: center;
+  align-content: center;
+}
+.chatUser {
+  display: flex;
+  padding: 10px 10px;
+  &:hover{
+    background: #edeff1;
+    cursor: pointer;
+  }
+
+  justify-content: center;
+  align-content: center;
+}
+
+.chatBodyHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
