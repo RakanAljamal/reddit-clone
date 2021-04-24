@@ -5,18 +5,21 @@ import HeaderUserDropdown from "../HeaderUserDropdown";
 import LoginDialog from "../LoginDialog";
 import { useDialog } from "../../effects/useDialog";
 import SignUpDialog from "../SignUpDialog";
+import useUser from "../../effects/useUser";
 
 const RegistrationContainer = ({}) => {
+    const user = useUser();
+    console.log(user);
 
     const {on:loginDialogOn,show:showLoginDialog, hide:loginDialogHide, getToggleProps:loginToggleProps}  = useDialog()
     const {on:signUpDialogOn,show:showSignUpDialog, hide:signUpDialogHide, getToggleProps:signUpToggleProps}  = useDialog()
-    
+
     return <div className={styles.registrationContainer}>
 
-        { loginDialogOn && <LoginDialog on={loginDialogOn} hide={loginDialogHide} showOtherDialog={showSignUpDialog}/> }
-        { signUpDialogOn && <SignUpDialog on={signUpDialogOn} hide={signUpDialogHide} showOtherDialog={showLoginDialog}/> }
-        <RButton {...loginToggleProps()} type="rPrimary" title="Log In"/>
-        <RButton {...signUpToggleProps()}type="rSecondary" title="Sign Up"/>
+        { !user && loginDialogOn && <LoginDialog on={loginDialogOn} hide={loginDialogHide} showOtherDialog={showSignUpDialog}/> }
+        { !user && signUpDialogOn && <SignUpDialog on={signUpDialogOn} hide={signUpDialogHide} showOtherDialog={showLoginDialog}/> }
+        {!user &&<RButton {...loginToggleProps()} type="rPrimary" title="Log In"/>}
+        {!user && <RButton {...signUpToggleProps()}type="rSecondary" title="Sign Up"/>}
 
         <div>
             <HeaderUserDropdown />

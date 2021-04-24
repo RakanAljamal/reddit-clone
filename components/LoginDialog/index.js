@@ -1,13 +1,39 @@
 import DialogContent from "@material-ui/core/DialogContent";
-import React from "react";
+import React, {useState} from "react";
 import styles from './styles.module.scss';
 import RButton from "../RButton";
 import TextField from '@material-ui/core/TextField';
-import { Dialog } from "./custom-styled";
+import {Dialog} from "./custom-styled";
+import {useMutation} from "@apollo/client";
+import {LOGIN} from "../../graphql/Mutation";
+import useUser from "../../effects/useUser";
 
 
-const LoginDialog = ({on, hide,showOtherDialog}) => {
-    
+const LoginDialog = ({on, hide, showOtherDialog}) => {
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [login, {data, loading}] = useMutation(LOGIN);
+
+
+    const handleLogin = () => {
+        login({
+            variables: {
+                data: {
+                    email,
+                    password
+                }
+            }
+        }).catch(err=>{
+            console.log(err);
+        });
+    }
+
+    if (data) {
+        localStorage.setItem('token', data.login.token);
+        window.location.reload();
+    }
+
+
     const handleSignUpClicked = () => {
         hide();
         showOtherDialog();
@@ -36,12 +62,14 @@ const LoginDialog = ({on, hide,showOtherDialog}) => {
                 <span className={styles.separator}/>
             </div>
             <div className={styles.registrationForm}>
-                <TextField label='USERNAME' variant="outlined"/>
-                <TextField label='PASSWORD' variant="outlined"/>
+                <TextField label='USERNAME' variant="outlined" value={email}
+                           onChange={(ev) => setEmail(ev.target.value)}/>
+                <TextField label='PASSWORD' variant="outlined" type="password" value={password}
+                           onChange={(ev) => setPassword(ev.target.value)}/>
             </div>
             <div className={styles.loginForm}>
 
-                <RButton type='rSecondary' title='Log in' fullWidth size='L'/>
+                <RButton type='rSecondary' title='Log in' fullWidth size='L' onClick={handleLogin}/>
                 <span> Forgot your <a>username</a> or <a>password</a> ?  </span>
                 <span>New to Reddit? <a onClick={handleSignUpClicked}>SIGN UP</a> </span>
             </div>

@@ -9,4 +9,12 @@ const CREATE_POST = gql`
     }
 `;
 
-export {CREATE_POST}
+const LOGIN = gql`
+    mutation Login($data:Login!){
+        login(data:$data){
+            token
+        }
+    }
+`;
+
+export {CREATE_POST,LOGIN}
