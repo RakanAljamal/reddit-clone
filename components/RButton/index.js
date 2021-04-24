@@ -1,7 +1,7 @@
 import React, {useContext} from 'react';
-import { getSvg } from '../../util/icon-utils';
-import { Button } from "./custom-styled";
+import {Button} from "./custom-styled";
 import {DarkModeContext} from "../DarkModeProvider";
+import RedditIcon from "../RedditIcon";
 
 const getButton = (props) => {
     const {dark} = useContext(DarkModeContext);
@@ -18,7 +18,7 @@ const getButton = (props) => {
 
         default:
             return <Button {...props} dark={dark}>
-                {props.type === 'rJoin' && getSvg('Plus')}
+                {props.type === 'rJoin' && <RedditIcon icon='Plus'/>}
                 <span>{props.title}</span>
             </Button>
 

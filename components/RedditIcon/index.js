@@ -1,4 +1,4 @@
-const getSvg = (icon) => {
+const RedditIcon = ({icon}) => {
     switch (icon) {
         case 'Hot':
             return <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><title>Hot</title>
@@ -47,4 +47,4 @@ const getSvg = (icon) => {
     }
 }
 
-export {getSvg}
+export {RedditIcon as default}

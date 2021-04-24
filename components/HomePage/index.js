@@ -15,7 +15,6 @@ const HomePage = ({trending, subreddits, posts}) => {
     const {dark, toggleDark} = React.useContext(DarkModeContext);
     return !loading && <React.Fragment>
         <GlobalStyle dark={dark}/>
-        <Navbar/>
         <div className={styles.homePage}>
             <Trending title='Trending Today' data={trending}/>
 
