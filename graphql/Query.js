@@ -30,6 +30,7 @@ const GET_TRENDING = gql`
 const GET_ME = gql`
     query {
         me {
+            id
             email
             posts{
                 title
