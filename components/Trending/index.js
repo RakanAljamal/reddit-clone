@@ -12,11 +12,11 @@ const Trending = ({title}) => {
     return !loading && <React.Fragment>
 
         <div className={dark ? styles.darkTrendingTitle : styles.trendingTitle}>{title}</div>
-        <div className={styles.trendingContainer}>
-            {data.trending.map(item => (
-                <TrendingItem  {...item}/>
-            ))}
-        </div>
+        {/*<div className={styles.trendingContainer}>*/}
+        {/*    {data.trending.map(item => (*/}
+        {/*        <TrendingItem  {...item}/>*/}
+        {/*    ))}*/}
+        {/*</div>*/}
     </React.Fragment>
 
 }

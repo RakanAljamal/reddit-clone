@@ -37,8 +37,25 @@ const GET_ME = gql`
             }
             name
         }
+    }`;
+
+const GET_MESSAGES = gql`
+    query{
+        messages {
+            content
+            createdAt
+            from {
+                id
+                name
+            }
+
+            to {
+                id
+                name
+            }
+        }
     }
 
 `;
 
-export {GET_POSTS, GET_TRENDING,GET_ME};
+export {GET_POSTS, GET_TRENDING, GET_ME, GET_MESSAGES};

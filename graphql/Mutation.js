@@ -1,6 +1,11 @@
 import {gql} from '@apollo/client';
 
-const CREATE_POST = gql`
+const POST_MESSAGE=gql`
+    mutation  PostMessage($data:PostMessageInput!){
+        postMessage(data:$data)
+    }
+
+`;const CREATE_POST = gql`
     mutation CreatePost($data:PostCreateInput!) {
         createPost(data:$data){
             title
@@ -17,4 +22,4 @@ const LOGIN = gql`
     }
 `;
 
-export {CREATE_POST,LOGIN}
+export {CREATE_POST,LOGIN,POST_MESSAGE}

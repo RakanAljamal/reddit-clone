@@ -1,54 +1,18 @@
 import React, {useState} from 'react';
 import styles from './style.module.scss'
 import FilterButton from "../FilterButton";
-import CreatePostContainer, {DefaultProfileLogo} from "../CreatePostContainer";
+import {DefaultProfileLogo} from "../CreatePostContainer";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown, faCog, faExternalLinkAlt, faLocationArrow, faTimes} from "@fortawesome/free-solid-svg-icons";
 import useUser from "../../effects/useUser";
-
-function LeftChatPanelHeader() {
-    return <div className={styles.leftChatPanelHeader}>
-        <div>Chat</div>
-        <div><FilterButton icon='Chat-Plus' hideBackground/></div>
-    </div>;
-}
-
-const ChatUser = ({activeUser, user, onSelect}) => {
+import {useMutation} from "@apollo/client";
+import {POST_MESSAGE} from "../../graphql/Mutation";
+import {getFirstGroup, getLastMessage, getOtherUser, groupMessages} from "../../util/chat-utils";
 
 
-    return <div className={activeUser.id === user.id ? styles.activeUser : styles.chatUser}
-                onClick={() => onSelect(user)}>
-        <DefaultProfileLogo/>
-        <div className={styles.messageHighlight}>
-            <h4>{user.name}</h4>
-            <span>{user.messages[0].content}</span>
-        </div>
-    </div>
 
-}
 
-function ChatUsers({activeUser, users, setActiveUser}) {
 
-    const onSelection = (user) => {
-        setActiveUser(user);
-    }
-
-    return <div className={styles.chatUsersContainer}>
-        <div className={styles.chatUsers}>
-            {users.map(user => {
-                return <ChatUser activeUser={activeUser} user={user} onSelect={(user) => onSelection(user)}/>
-            })}
-        </div>
-    </div>
-}
-
-function LeftChatPanel({activeUser, users, setActiveUser}) {
-    return <div className={styles.leftChatPanel}>
-        <LeftChatPanelHeader/>
-        <ChatUsers activeUser={activeUser} users={users} setActiveUser={setActiveUser}/>
-
-    </div>;
-}
 
 function ChatBodyHeader({user}) {
     return <div className={styles.chatBodyHeader}>
@@ -64,16 +28,17 @@ function ChatBodyHeader({user}) {
     </div>;
 }
 
-function ChatMessage({user,message}) {
+function ChatMessage({user, message}) {
     const loggedInUser = useUser();
-    console.log(loggedInUser)
+
     return <div className={parseInt(loggedInUser?.id) === user.id ? styles.chatMessage : styles.selfUserChatMessage}>
-        <span>{message}</span>
+        <span>{message.content}</span>
     </div>;
 }
 
 
 function ChatBodyMessages({user}) {
+
 
     return <div className={styles.chatBodyMessage}>
         <div className={styles.userMessage}>
@@ -82,55 +47,136 @@ function ChatBodyMessages({user}) {
             <span className={styles.messageTime}>02:32 AM</span>
         </div>
         <div className={styles.chatMessageContainer}>
-            {user.messages.map((_, index, array) => {
-                return <ChatMessage user={user} message={user.messages[array.length - 1 - index].content}/>
+            {user.messages.map(message => {
+                return <ChatMessage user={user} message={message}/>
             })}
         </div>
 
     </div>;
 }
 
-function Textarea() {
-    return <textarea placeholder='Message' className={styles.sendMessage}>
+function Textarea({value, sendMessage, onMessageChange}) {
+
+
+    const handleChange = (e) => onMessageChange(e.target.value);
+
+    const handleSendMessage = (e) => {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            sendMessage();
+        }
+    }
+    return <textarea value={value} placeholder='Message' className={styles.sendMessage} onKeyDown={handleSendMessage}
+                     onChange={handleChange}>
 
     </textarea>;
 }
 
-function ChatBodyFooter() {
+function ChatBodyFooter({user}) {
+    const [message, setMessage] = useState('');
+    const [postMessage, {data, error, loading}] = useMutation(POST_MESSAGE);
+
+    const sendMessage = () => {
+        if (message.trim().length < 1) {
+            return;
+        }
+
+        postMessage({
+            variables: {
+                data: {
+                    content: message,
+                    to: 'rakanaljamal@hotmail.com'
+                }
+            }
+        })
+
+        if (error) {
+            console.log(error);
+        }
+        if (!loading) {
+            // console.log(data);
+        }
+
+        setMessage('');
+
+    }
     return <div className={styles.chatFooter}>
-        <Textarea />
-        <FontAwesomeIcon icon={faLocationArrow} />
+        <Textarea value={message} sendMessage={sendMessage} onMessageChange={(msg) => setMessage(msg)}/>
+        <FontAwesomeIcon cursor="pointer" onClick={sendMessage} icon={faLocationArrow}
+                         opacity={message.trim().length > 0 ? '1' : '0.3'}/>
     </div>;
 }
 
-function ChatBody({user}) {
+function ChatBody({message}) {
+    const otherUser = getOtherUser(message);
+
     return <div className={styles.chatBody}>
-        <ChatBodyHeader user={user}/>
-        <ChatBodyMessages user={user}/>
-        <ChatBodyFooter/>
+        <ChatBodyHeader user={otherUser} />
+        {/*<ChatBodyMessages message={message}/>*/}
+        {/*<ChatBodyFooter user={user}/>*/}
     </div>;
 }
 
-const ChatBox = () => {
-    const users = [{
-        id: 11, name: 'Hanin', messages: [{
-            content: "That's insane"
-        }, {
-            content: "Impressive"
-        }, {
-            content: "Thank you so much!!"
-        },{
-            content: "I Love you"
-        }]
-    }]
+const ChatBox = ({data: {messages}}) => {
 
-    const [activeUser, setActiveUser] = useState(users[0]);
-    console.log(activeUser);
+
+    let groupMessagesByUser = groupMessages(messages);
+
+    const lastMessage =getLastMessage(getFirstGroup(groupMessagesByUser));
+
+    const [activeMessage, setActiveMessage] = useState(lastMessage);
     return <div className={styles.chatBox}>
 
-        <LeftChatPanel activeUser={activeUser} users={users} setActiveUser={setActiveUser}/>
-        <ChatBody user={activeUser}/>
+        <LeftChatPanel activeMessage={activeMessage} messages={groupMessagesByUser} setActiveMessage={setActiveMessage}/>
+        <ChatBody message={activeMessage}/>
     </div>
+}
+function LeftChatPanel({activeMessage, messages, setActiveMessage}) {
+    return <div className={styles.leftChatPanel}>
+        <LeftChatPanelHeader/>
+        <ChatUsers activeMessage={activeMessage} messages={messages} setActiveMessage={setActiveMessage}/>
+
+    </div>;
+}
+
+function LeftChatPanelHeader() {
+    return <div className={styles.leftChatPanelHeader}>
+        <div>Chat</div>
+        <div><FilterButton icon='Chat-Plus' hideBackground/></div>
+    </div>;
+}
+
+
+function ChatUsers({activeMessage, messages, setActiveMessage}) {
+
+    const onSelection = (message) => {
+        setActiveMessage(message);
+    }
+
+
+
+    return <div className={styles.chatUsersContainer}>
+        <div className={styles.chatUsers}>
+            {Object.values(messages).map((messageByUser) => {
+                const lastMessageFromList = getLastMessage(messageByUser);
+                return <ChatUser activeMessage={activeMessage} message={lastMessageFromList}
+                                 onSelect={(message) => onSelection(message)}/>
+            })}
+        </div>
+    </div>
+}
+
+const ChatUser = ({activeMessage, message, onSelect}) => {
+    return <div className={message === activeMessage ? styles.activeUser : styles.chatUser}
+                onClick={() => onSelect(message)}>
+        <DefaultProfileLogo/>
+
+        <div className={styles.messageHighlight}>
+            <h4>{message.from.name}</h4>
+            <span>{message.content}</span>
+        </div>
+    </div>
+
 }
 
 export default ChatBox;

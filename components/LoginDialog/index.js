@@ -24,7 +24,7 @@ const LoginDialog = ({on, hide, showOtherDialog}) => {
                 }
             }
         }).catch(err=>{
-            console.log(err);
+            // console.log(err);
         });
     }
 

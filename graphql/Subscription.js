@@ -9,4 +9,13 @@ const POST_CREATED_SUBSCRIPTION = gql`
     }
 `;
 
+const MESSAGED_ADDED = gql`
+    subscription{
+        postMessage{
+            content
+            createdAt
+        }
+    }
+`;
+
 export {POST_CREATED_SUBSCRIPTION};

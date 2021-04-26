@@ -13,7 +13,7 @@ const MainSection = ({filterTitle, posts}) => {
     return <div className={styles.mainSectionContainer}>
         {user && <Link href="/submit"><CreatePostContainer/></Link>}
         <FilterContainer title={filterTitle}/>
-        <PostSection posts={posts}/>
+        {/*<PostSection posts={posts}/>*/}
     </div>
 }
 

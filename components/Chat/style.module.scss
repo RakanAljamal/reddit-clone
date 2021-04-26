@@ -71,7 +71,7 @@
   white-space: nowrap;
   overflow: hidden;
   max-width: 55%;
-
+  width: 45%;
   & > h4 {
     padding: 0;
     margin: 0;
@@ -186,6 +186,7 @@
   flex-direction: column;
   padding: 15px 20px;
   min-height: 75%;
+  overflow-y: auto;
 }
 
 .userMessage {
@@ -248,6 +249,7 @@
   align-items: center;
 
   & > svg {
+    transition: ease-in-out 0.3s;
     transform: rotate(45deg);
     color: #24a0ed;
   }

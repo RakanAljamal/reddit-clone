@@ -9,7 +9,6 @@ import useUser from "../../effects/useUser";
 
 const RegistrationContainer = ({}) => {
     const user = useUser();
-    console.log(user);
 
     const {on:loginDialogOn,show:showLoginDialog, hide:loginDialogHide, getToggleProps:loginToggleProps}  = useDialog()
     const {on:signUpDialogOn,show:showSignUpDialog, hide:signUpDialogHide, getToggleProps:signUpToggleProps}  = useDialog()
