@@ -14,7 +14,7 @@
 
 .leftChatPanel {
   height: 100%;
-  width: 45%;
+  width: 32%;
   border-top-left-radius: 20px;
   display: flex;
   flex-direction: column;
@@ -181,6 +181,11 @@
   background: #fff;
 }
 
+.reverseChatBody{
+  display: flex;
+  flex-direction: column-reverse;
+}
+
 .chatBodyMessage {
   display: flex;
   flex-direction: column;
@@ -253,4 +258,15 @@
     transform: rotate(45deg);
     color: #24a0ed;
   }
+}
+
+.chatLoading {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  flex-direction: column;
+  max-width: 380px;
+  margin: 10px auto auto;
+  overflow-y: auto;
 }

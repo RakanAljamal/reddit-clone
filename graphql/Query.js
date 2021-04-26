@@ -40,18 +40,20 @@ const GET_ME = gql`
     }`;
 
 const GET_MESSAGES = gql`
-    query{
-        messages {
+    query GET_MESSAGES($id:ID){
+        messages(findById: $id) {
             content
             createdAt
             from {
                 id
                 name
+                email
             }
 
             to {
                 id
                 name
+                email
             }
         }
     }
