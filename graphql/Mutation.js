@@ -1,8 +1,17 @@
 import {gql} from '@apollo/client';
 
 const POST_MESSAGE=gql`
-    mutation  PostMessage($data:PostMessageInput!){
-        postMessage(data:$data)
+    mutation  PostMessage($data:PostMessageInput!,$showAllMessages: Boolean){
+        postMessage(data:$data,showAllMessages:$showAllMessages){
+            id
+            content
+            from{
+                id
+            }
+            to{
+                id
+            }
+        }
     }
 
 `;const CREATE_POST = gql`

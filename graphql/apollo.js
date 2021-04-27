@@ -28,10 +28,18 @@ let httpLink = new HttpLink({
     credentials: 'same-origin',
 });
 if (!ssrMode) {
+    const token = localStorage.getItem('token');
     const wsClient = new SubscriptionClient(
         wsUri, {
+            connectionParams:()=>{
+                return{
+                    Authorization:`Bearer ${token}`
+                }
+            },
             reconnect: true,
-        }
+        },
+
+
     );
     wsLink = new WebSocketLink(wsClient);
     httpLink = split(

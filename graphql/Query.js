@@ -42,6 +42,7 @@ const GET_ME = gql`
 const GET_MESSAGES = gql`
     query GET_MESSAGES($id:ID){
         messages(findById: $id) {
+            id
             content
             createdAt
             from {

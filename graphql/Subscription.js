@@ -11,11 +11,22 @@ const POST_CREATED_SUBSCRIPTION = gql`
 
 const MESSAGED_ADDED = gql`
     subscription{
-        postMessage{
+        messageAdded{
+            id
             content
             createdAt
+            from {
+                id
+                name
+                email
+            }
+            to {
+                id
+                name
+                email
+            }
         }
     }
 `;
 
-export {POST_CREATED_SUBSCRIPTION};
+export {POST_CREATED_SUBSCRIPTION, MESSAGED_ADDED};

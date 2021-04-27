@@ -5,9 +5,6 @@ import {useLocalStorage} from "../effects/useLocalStorage";
 import React, {useState} from "react";
 import {DarkModeProvider} from "../components/DarkModeProvider";
 import Navbar from "../components/Navbar";
-import ChatBox from "../components/Chat";
-import {useQuery} from "@apollo/client";
-import {GET_MESSAGES} from "../graphql/Query";
 
 function MyApp({Component, pageProps}) {
     const [darkMode] = useLocalStorage('darkModeEnabled');
