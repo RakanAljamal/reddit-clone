@@ -5,17 +5,20 @@ import SideSection from "../SideSection/SideSection";
 import {DarkModeContext} from "../DarkModeProvider";
 import {GlobalStyle} from "./styled-component";
 import {useMutation, useQuery, useSubscription} from "@apollo/client";
-import {GET_MESSAGES} from "../../graphql/Query";
+import {GET_MESSAGES, GET_POSTS} from "../../graphql/Query";
 import ChatBox from "../Chat";
 import useUser from "../../effects/useUser";
 import {MESSAGED_ADDED, POST_CREATED_SUBSCRIPTION} from "../../graphql/Subscription";
 import {CREATE_POST, POST_MESSAGE} from "../../graphql/Mutation";
+import MainSection from "../MainSection";
 
 const HomePage = ({trending, subreddits, posts}) => {
-    // const {data,error, loading} = useQuery(GET_POSTS);
+    const {data:dataPost,loading,error:subError} = useQuery(GET_POSTS);
+    if(subError){
+        console.log(subError)
+    }
     const {data: chatData, loading: chatLoading} = useQuery(GET_MESSAGES);
 
-    const [postMessage, {loading, data, error}] = useMutation(POST_MESSAGE);
 
     const [message,setMessage] = useState({});
 
@@ -28,7 +31,7 @@ const HomePage = ({trending, subreddits, posts}) => {
             <Trending title='Trending Today' data={trending}/>
 
             <div className={styles.mainPageContainer}>
-                {/*<MainSection filterTitle='Popular posts' posts={data.posts}/>*/}
+                <MainSection filterTitle='Popular posts' posts={dataPost.posts}/>
                 <SideSection subreddits={subreddits}/>
             </div>
         </div>

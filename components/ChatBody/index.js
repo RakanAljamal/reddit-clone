@@ -20,7 +20,7 @@ function ASyncedMessages({message,otherUser}) {
     if (subLoading) {
         return <ChatLoading />
     }
-    return <ChatBodyMessages messages={syncedData.messageAdded}/>
+    return <ChatBodyMessages messages={syncedData? syncedData.messageAdded : []}/>
 
 }
 

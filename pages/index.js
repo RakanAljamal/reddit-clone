@@ -1,4 +1,6 @@
 import HomePage from "../components/HomePage";
+import {useQuery} from "@apollo/client";
+import {GET_POSTS} from "../graphql/Query";
 
 
 export default function Home(props) {
