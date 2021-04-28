@@ -10,8 +10,8 @@ const POST_CREATED_SUBSCRIPTION = gql`
 `;
 
 const MESSAGED_ADDED = gql`
-    subscription{
-        messageAdded{
+    subscription MessageAdded($id: ID!){
+        messageAdded(otherUserId:$id){
             id
             content
             createdAt

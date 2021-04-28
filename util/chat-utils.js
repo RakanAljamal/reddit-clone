@@ -10,6 +10,9 @@ function getFirstGroup(groups) {
 }
 
 function groupMessages(messages) {
+    if(!messages){
+        return  null;
+    }
     const loggedInUser = useUser();
     let groupMessagesByUser = {};
 
