@@ -1,12 +1,12 @@
 import styles from "../Chat/style.module.scss";
 import FilterButton from "../FilterButton";
 import React from "react";
-import {ChatUsers} from "../ChatUsers";
+import {AsyncChatGroups} from "../ChatUsers";
 
-function LeftChatPanel({activeMessage, messages, setActiveMessage, syncedData}) {
+function LeftChatPanel({activeMessage, setActiveMessage}) {
     return <div className={styles.leftChatPanel}>
         <LeftChatPanelHeader/>
-        <ChatUsers activeMessage={activeMessage} messages={messages} syncedData={syncedData}  setActiveMessage={setActiveMessage}/>
+        <AsyncChatGroups activeMessage={activeMessage}  setActiveMessage={setActiveMessage}/>
 
     </div>;
 }

@@ -29,4 +29,24 @@ const MESSAGED_ADDED = gql`
     }
 `;
 
-export {POST_CREATED_SUBSCRIPTION, MESSAGED_ADDED};
+const GROUP_MESSAGES = gql`
+    subscription {
+        messageGroup{
+            id
+            content
+            createdAt
+            from{
+                id
+                name
+                email
+            }
+            to {
+                id
+                email
+                name
+            }
+        }
+    }
+`;
+
+export {POST_CREATED_SUBSCRIPTION, MESSAGED_ADDED, GROUP_MESSAGES};

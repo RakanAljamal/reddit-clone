@@ -25,6 +25,9 @@ function ASyncedMessages({message,otherUser}) {
 }
 
 function ChatBody({message}) {
+    if(!message){
+        return <></>
+    }
     const otherUser = getOtherUser(message);
     const [hello, setHello] = useState(0);
     const [synced, setUseSynced] = useState(false);
