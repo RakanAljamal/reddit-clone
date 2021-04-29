@@ -1,46 +1,50 @@
 import styles from "../Chat/style.module.scss";
-import {checkActiveMessage, getOtherUser} from "../../util/chat-utils";
+import {getOtherUser} from "../../util/chat-utils";
 import {DefaultProfileLogo} from "../CreatePostContainer";
-import React, {useEffect} from "react";
+import React, {useState} from "react";
 import {useSubscription} from "@apollo/client";
 import {GROUP_MESSAGES} from "../../graphql/Subscription";
+import useUser from "../../effects/useUser";
+import {ChatLoading} from "../ChatLoader";
 
-const AsyncChatGroups = ({activeMessage,setActiveMessage}) => {
-    let {data, error, loading} = useSubscription(GROUP_MESSAGES);
-    const onSelection = (message) => {
-        setActiveMessage(message);
-    }
-    if (error) {
-        console.log(error);
+const AsyncChatGroups = ({activeUser, setActiveUser}) => {
+    const loggedInUser = useUser()
+    let {data, loading} = useSubscription(GROUP_MESSAGES);
+    const onSelection = (user) => {
+        setActiveUser(user);
     }
 
-    useEffect(()=>{
-        if(data){
-            setActiveMessage(data.messageGroup[0]);
-        }
-    },[loading])
-    if(loading){
-        return <h1>Chat loading</h1>
+    if (loading) {
+        return <ChatLoading />
     }
-    if (!loading) {
-        console.log(data);
+
+    if (!loading && !activeUser) {
+        setActiveUser(getOtherUser(loggedInUser, data.messageGroup[0]));
     }
 
 
     return <div className={styles.chatUsers}>
-        {data.messageGroup.map(message=>{
-            return <ChatUser activeMessage={activeMessage}
+        {data.messageGroup.map(message => {
+            return <ChatUser activeUser={activeUser}
                              message={message}
-                             onSelect={(message) => onSelection(message)}/>
+                             onSelect={(user) => onSelection(user)}/>
         })}
     </div>;
 }
 
 
-const ChatUser = ({activeMessage, message, onSelect}) => {
-    const otherUser = getOtherUser(message);
-    return <div className={checkActiveMessage(message,activeMessage) ? styles.activeUser : styles.chatUser}
-                onClick={() => onSelect(message)}>
+const ChatUser = ({message,activeUser,onSelect}) => {
+
+    const loggedInUser = useUser();
+    const otherUser = getOtherUser(loggedInUser, message);
+
+    function handleSelect() {
+        onSelect(otherUser);
+    }
+
+    return <div
+        className={getOtherUser(loggedInUser, message).id === activeUser?.id ? styles.activeUser : styles.chatUser}
+        onClick={() => handleSelect()}>
         <DefaultProfileLogo/>
 
         <div className={styles.messageHighlight}>

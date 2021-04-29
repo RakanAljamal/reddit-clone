@@ -8,12 +8,13 @@ import {ChatBodyHeader} from "../ChatBodyHeader";
 import {ChatBodyFooter} from "../ChatFooter";
 import {ChatBodyMessages} from "../ChatMessage";
 import {MESSAGED_ADDED} from "../../graphql/Subscription";
+import useUser from "../../effects/useUser";
 
-function ASyncedMessages({message,otherUser}) {
+function ASyncedMessages({activeUser}) {
 
     const {data: syncedData, loading: subLoading, error: subError} = useSubscription(MESSAGED_ADDED, {
         variables: {
-            id: otherUser.id
+            id: activeUser.id
         }
     });
 
@@ -24,35 +25,16 @@ function ASyncedMessages({message,otherUser}) {
 
 }
 
-function ChatBody({message}) {
-    if(!message){
+function ChatBody({activeUser}) {
+    if(!activeUser){
         return <></>
     }
-    const otherUser = getOtherUser(message);
-    const [hello, setHello] = useState(0);
-    const [synced, setUseSynced] = useState(false);
 
-    useEffect(() => {
-
-        return () => {
-            setTimeout(() => setUseSynced(false), 3000);
-        }
-    }, [message])
-
-    const {data, loading, err} = useQuery(GET_MESSAGES, {
-        variables: {
-            id: otherUser.id
-        },
-        fetchPolicy: 'no-cache'
-    })
-    if (loading) {
-        return <ChatLoading otherUser={otherUser}/>
-    }
 
     return <div className={styles.chatBody}>
-        <ChatBodyHeader user={otherUser}/>
-        <ASyncedMessages message={message} otherUser={otherUser}/>
-        <ChatBodyFooter otherUser={otherUser}/>
+        <ChatBodyHeader user={activeUser}/>
+        <ASyncedMessages activeUser={activeUser} />
+        <ChatBodyFooter otherUser={activeUser}/>
     </div>;
 }
 

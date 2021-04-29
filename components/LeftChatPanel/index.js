@@ -3,10 +3,10 @@ import FilterButton from "../FilterButton";
 import React from "react";
 import {AsyncChatGroups} from "../ChatUsers";
 
-function LeftChatPanel({activeMessage, setActiveMessage}) {
+function LeftChatPanel({activeUser, setActiveUser}) {
     return <div className={styles.leftChatPanel}>
         <LeftChatPanelHeader/>
-        <AsyncChatGroups activeMessage={activeMessage}  setActiveMessage={setActiveMessage}/>
+        <AsyncChatGroups activeUser={activeUser}  setActiveUser={setActiveUser}/>
 
     </div>;
 }

@@ -1,8 +1,10 @@
 import useUser from "../effects/useUser";
 
 
-function getOtherUser(message) {
-    const loggedInUser = useUser();
+function getOtherUser(loggedInUser,message) {
+    if(!message){
+        return  null;
+    }
     return message.from.id === loggedInUser.id ? message.to : message.from;
 }
 

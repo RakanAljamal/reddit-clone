@@ -6,13 +6,13 @@ import {ChatBody} from "../ChatBody";
 
 
 const ChatBox = ({data: {messages},syncedData}) => {
-    const [activeMessage, setActiveMessage] = useState(null);
+    const [activeUser, setActiveUser] = useState(null);
 
     return <div className={styles.chatBox}>
 
-        <LeftChatPanel activeMessage={activeMessage}
-                       setActiveMessage={setActiveMessage}  />
-        <ChatBody message={activeMessage} />
+        <LeftChatPanel activeUser={activeUser}
+                       setActiveUser={setActiveUser}  />
+        <ChatBody activeUser={activeUser} />
     </div>
 }
 
