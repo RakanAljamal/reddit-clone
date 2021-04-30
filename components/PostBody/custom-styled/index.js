@@ -70,7 +70,7 @@ const ShortTitleWithPhotoPost = styled.div`
 
   & > div {
     margin: 0;
-    ${props => props.image && `background: url(${props.image}) center center/cover no-repeat;`}
+    ${props => props.content && `background: url(${props.content}) center center/cover no-repeat;`}
     max-width: 100%;
     height: 100%;
   }
@@ -79,6 +79,7 @@ const ShortTitleWithPhotoPost = styled.div`
 const ShortTitleWithLinkPost = styled(Post)`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 
   & > div > a {
     font-size: 12px;

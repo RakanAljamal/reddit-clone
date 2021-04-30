@@ -16,6 +16,7 @@ import LoginDialog from "../LoginDialog";
 import SignUpDialog from "../SignUpDialog";
 import {useLocalStorage} from "../../effects/useLocalStorage";
 import {DarkModeContext} from "../DarkModeProvider";
+import useUser from "../../effects/useUser";
 
 
 const HeaderUserDropdown = () => {
@@ -27,6 +28,7 @@ const HeaderUserDropdown = () => {
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+    const user = useUser();
 
     const handleClose = () => {
         setAnchorEl(null);
@@ -35,6 +37,11 @@ const HeaderUserDropdown = () => {
     const handleSwitchChange = (ev) => {
         setChecked(!checked);
         toggleDark(!checked)
+    }
+
+    const handleLogout = () => {
+        localStorage.clear();
+        window.location.reload();
     }
 
 
@@ -87,12 +94,18 @@ const HeaderUserDropdown = () => {
                 <StyledListItemText primary="Reddit Premium"/>
             </StyledMenuItem>
             <Divider/>
-             <StyledMenuItem {...loginProps.getToggleProps()}>
+            {!user ? <StyledMenuItem {...loginProps.getToggleProps()}>
                 <ListItemIcon>
                     <ExitToApp fontSize="small"/>
                 </ListItemIcon>
                 <StyledListItemText primary="Log in / Sign Up"/>
-            </StyledMenuItem>
+            </StyledMenuItem> :
+            <StyledMenuItem onClick={handleLogout}>
+                <ListItemIcon>
+                    <ExitToApp fontSize="small"/>
+                </ListItemIcon>
+                <StyledListItemText primary="Log out"/>
+            </StyledMenuItem>}
         </StyledMenu>
         </MuiThemeProvider>
     </span>

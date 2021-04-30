@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {createContext, useContext, useEffect, useState} from 'react';
 import styles from './styles.module.scss';
 import LogoContainer from "../LogoContainer";
 import SearchContainer from "../SearchContainer";
@@ -12,11 +12,13 @@ const Navbar = () => {
         setIsMounted(true)
     }, [])
 
-    return isMounted && <div className={dark? styles.darkNav : styles.nav}>
+
+    return isMounted && <div className={dark ? styles.darkNav : styles.nav}>
         <LogoContainer/>
         <SearchContainer/>
         <RegistrationContainer/>
     </div>
 }
+
 
 export default Navbar;

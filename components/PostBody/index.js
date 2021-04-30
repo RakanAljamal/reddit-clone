@@ -8,6 +8,7 @@ import {LinkedDiv, ShortTitleShortTextPost, ShortTitleWithLinkPost, ShortTitleWi
 import {DarkModeContext} from "../DarkModeProvider";
 
 const getPost = (props) => {
+    console.log(props);
     const {dark}  = useContext(DarkModeContext);
     switch (props.type) {
         case PostType.ShortTitleShortBody:
@@ -27,7 +28,7 @@ const getPost = (props) => {
             return <ShortTitleWithLinkPost {...props} dark={dark}>
                 <div>
                     <h3 className={dark? styles.darkTitle : styles.title}>{props.title}</h3>
-                    <a href={props.body}>{formatLink(props.body)} <FontAwesomeIcon icon={faExternalLinkAlt}/>
+                    <a href={props.content}>{formatLink(props.content)} <FontAwesomeIcon icon={faExternalLinkAlt}/>
                     </a>
 
                 </div>

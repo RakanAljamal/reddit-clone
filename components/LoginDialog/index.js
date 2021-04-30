@@ -68,10 +68,7 @@ const LoginDialog = ({on, hide, showOtherDialog}) => {
                            onChange={(ev) => setPassword(ev.target.value)}/>
             </div>
             <div className={styles.loginForm}>
-
-                <button type='rSecondary' title='Log in' fullWidth size='L' onClick={handleLogin}>
-                    Log In
-                </button>
+                <RButton type='rSecondary' title='Log in' fullWidth size='L' onClick={handleLogin}/>
                 <br />
                 <span> Forgot your <a>username</a> or <a>password</a> ?  </span>
                 <span>New to Reddit? <a onClick={handleSignUpClicked}>SIGN UP</a> </span>

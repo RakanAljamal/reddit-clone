@@ -9,14 +9,17 @@ import {GET_MESSAGES, GET_POSTS} from "../../graphql/Query";
 import ChatBox from "../Chat";
 import useUser from "../../effects/useUser";
 import MainSection from "../MainSection";
+import {useNavbarOptions} from "../NavbarProvider";
 
 const HomePage = ({trending, subreddits, posts}) => {
     const {data:dataPost,loading,error:subError} = useQuery(GET_POSTS);
     if(subError){
         console.log(subError)
     }
-    const {data: chatData, loading: chatLoading} = useQuery(GET_MESSAGES);
 
+    const {chatDialog} = useNavbarOptions();
+    const {data: chatData, loading: chatLoading} = useQuery(GET_MESSAGES);
+    const user = useUser();
 
 
     // console.log(chatData)
@@ -25,14 +28,14 @@ const HomePage = ({trending, subreddits, posts}) => {
     return !loading && <React.Fragment>
         <GlobalStyle dark={dark}/>
         <div className={styles.homePage}>
-            <Trending title='Trending Today' data={trending}/>
+            {!user && <Trending title='Trending Today' data={trending}/> }
 
             <div className={styles.mainPageContainer}>
                 <MainSection filterTitle='Popular posts' posts={dataPost.posts}/>
                 <SideSection subreddits={subreddits}/>
             </div>
         </div>
-        {loggedInUser && !chatLoading && <ChatBox  data={chatData} />}
+        {loggedInUser && !chatLoading && chatDialog  && <ChatBox  data={chatData} />}
 
 
     </React.Fragment>

@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 
 const callAll = (...fns) => (...args) => fns.forEach(fn => fn && fn(...args))
-import styles from '../components/LoginDialog/styles.module.scss';
 export function useDialog() {
     const [on, setOn] = useState(false)
     const show = () => setOn(true)
