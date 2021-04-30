@@ -5,7 +5,7 @@ import {ChatBody} from "../ChatBody";
 
 
 
-const ChatBox = ({data: {messages},syncedData}) => {
+const ChatBox = () => {
     const [activeUser, setActiveUser] = useState(null);
 
     return <div className={styles.chatBox}>

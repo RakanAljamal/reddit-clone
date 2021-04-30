@@ -1,9 +1,8 @@
-import styles from "../Chat/style.module.scss";
+import styles from "./style.module.scss";
 import React from "react";
 import styled from "styled-components";
 import {Skeleton} from "@material-ui/lab";
 import {CircularProgress} from "@material-ui/core";
-import {ChatBodyHeader} from "../ChatBodyHeader";
 import {ChatBodyFooter} from "../ChatFooter";
 
 const StyledSkeleton = styled(Skeleton)`
@@ -15,9 +14,8 @@ const StyledCircularProgress = styled(CircularProgress)`
   margin: auto;
 `;
 
-const ChatLoading = ({otherUser}) => {
-    return <div className={styles.chatBody}>
-        <div className={styles.chatLoading}>
+const ChatLoading = () => {
+    return <div className={styles.chatLoading}>
             <div>
                 <StyledSkeleton variant="text" width={'90%'} height={'100%'}/>
             </div>
@@ -76,8 +74,6 @@ const ChatLoading = ({otherUser}) => {
                 <StyledSkeleton variant="text" width={'70%'} height={'100%'}/>
             </div>
         </div>
-        <ChatBodyFooter otherUser={otherUser}/>
-    </div>
 }
 
 export {ChatLoading, StyledCircularProgress}

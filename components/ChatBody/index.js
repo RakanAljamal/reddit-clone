@@ -1,39 +1,36 @@
-import {getOtherUser} from "../../util/chat-utils";
-import {useQuery, useSubscription} from "@apollo/client";
-import {GET_MESSAGES} from "../../graphql/Query";
-import styles from "../Chat/style.module.scss";
-import React, {useEffect, useState} from "react";
+import {useSubscription} from "@apollo/client";
+import React from "react";
 import {ChatLoading} from "../ChatLoader";
 import {ChatBodyHeader} from "../ChatBodyHeader";
 import {ChatBodyFooter} from "../ChatFooter";
 import {ChatBodyMessages} from "../ChatMessage";
 import {MESSAGED_ADDED} from "../../graphql/Subscription";
-import useUser from "../../effects/useUser";
+import styles from './style.module.scss';
 
 function ASyncedMessages({activeUser}) {
 
-    const {data: syncedData, loading: subLoading, error: subError} = useSubscription(MESSAGED_ADDED, {
+    const {data, loading, error} = useSubscription(MESSAGED_ADDED, {
         variables: {
             id: activeUser.id
         }
     });
 
-    if (subLoading) {
-        return <ChatLoading />
+    if (loading) {
+        return <ChatLoading/>
     }
-    return <ChatBodyMessages messages={syncedData? syncedData.messageAdded : []}/>
+    return <ChatBodyMessages messages={data ? data.messageAdded : []}/>
 
 }
 
 function ChatBody({activeUser}) {
-    if(!activeUser){
-        return <></>
+    if (!activeUser) {
+        return <div />
     }
 
 
     return <div className={styles.chatBody}>
         <ChatBodyHeader user={activeUser}/>
-        <ASyncedMessages activeUser={activeUser} />
+        <ASyncedMessages activeUser={activeUser}/>
         <ChatBodyFooter otherUser={activeUser}/>
     </div>;
 }

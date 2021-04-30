@@ -1,9 +1,8 @@
-import React, {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef} from "react";
 import _ from "lodash";
-import styles from "../Chat/style.module.scss";
 import {DefaultProfileLogo} from "../CreatePostContainer";
 import useUser from "../../effects/useUser";
-import {StyledCircularProgress} from "../ChatLoader";
+import styles from './style.module.scss';
 
 const ScrollToBottom = () => {
     const elementRef = useRef();
@@ -28,41 +27,22 @@ const showUserAvatar = (message) => {
     return showAvatar;
 }
 
-const renderMessages = messages => {
-    return messages.map(message => {
-        return <>
-            {showUserAvatar(message) && <div className={styles.userMessage}>
-                <DefaultProfileLogo/>
-                <span className={styles.userName}>{message.from.name}</span>
-                <span className={styles.messageTime}>02:32 AM</span>
-            </div>}
-
-            <div className={styles.chatMessageContainer}>
-                <ChatMessage message={message}/>
-            </div>
-            <ScrollToBottom />
-        </>
-    });
-}
 function ChatBodyMessages({messages}) {
-    const [loading, setLoading] = useState(false);
+    return <div className={styles.chatBodyMessage}>
+        {messages.map(message => {
+            return <>
+                {showUserAvatar(message) && <div className={styles.userMessage}>
+                    <DefaultProfileLogo/>
+                    <span className={styles.userName}>{message.from.name}</span>
+                    <span className={styles.messageTime}>02:32 AM</span>
+                </div>}
 
-    let chatBodyRef = useRef(null);
-
-    useEffect(() => {
-        chatBodyRef.addEventListener('scroll', () => {
-            if ((chatBodyRef || {}).scrollTop === 0) {
-                setLoading(true);
-                setTimeout(() => setLoading(false), 2 * 1000);
-            }
-        })
-
-
-    }, [messages]);
-
-    return <div className={styles.chatBodyMessage} ref={el => chatBodyRef = el}>
-        {loading && <StyledCircularProgress/>}
-        {renderMessages(messages)}
+                <div className={styles.chatMessageContainer}>
+                    <ChatMessage message={message}/>
+                </div>
+                <ScrollToBottom/>
+            </>
+        })}
 
     </div>;
 }

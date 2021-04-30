@@ -1,0 +1,30 @@
+.leftChatPanel {
+  height: 100%;
+  width: 280px;
+  border-top-left-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: thin solid #edeff1;
+}
+
+.leftChatPanelHeader {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  padding: 5px 5px 5px 15px;
+
+  & > div {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18px;
+    justify-content: left;
+    border-bottom: transparent;
+    color: #1c1c1c;
+  }
+
+  & > svg {
+    padding: 7px;
+  }
+}

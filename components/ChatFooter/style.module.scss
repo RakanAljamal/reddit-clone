@@ -1,0 +1,24 @@
+.chatFooter {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  padding: 10px 0;
+  & > svg {
+    transition: ease-in-out 0.3s;
+    transform: rotate(45deg);
+    color: #24a0ed;
+  }
+}
+
+.sendMessage {
+  position: relative;
+  padding: 15px;
+  outline: none;
+  resize: none;
+  height: 50px;
+  border-radius: 30px;
+  width: 85%;
+  background: rgba(179, 179, 179, 0.1);
+  border: none;;
+}

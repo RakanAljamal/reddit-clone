@@ -1,4 +1,4 @@
-import styles from "../Chat/style.module.scss";
+import styles from "./style.module.scss";
 import {getOtherUser} from "../../util/chat-utils";
 import {DefaultProfileLogo} from "../CreatePostContainer";
 import React, {useState} from "react";

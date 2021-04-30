@@ -1,8 +1,7 @@
-import styles from "../Chat/style.module.scss";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronDown, faCog, faExternalLinkAlt, faTimes} from "@fortawesome/free-solid-svg-icons";
 import React from "react";
-
+import styles from './style.module.scss';
 function ChatBodyHeader({user}) {
     return <div className={styles.chatBodyHeader}>
         <div className={styles.chatBodyHeaderUser}>

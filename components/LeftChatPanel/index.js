@@ -1,4 +1,4 @@
-import styles from "../Chat/style.module.scss";
+import styles from "./style.module.scss";
 import FilterButton from "../FilterButton";
 import React from "react";
 import {AsyncChatGroups} from "../ChatUsers";

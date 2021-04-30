@@ -1,0 +1,35 @@
+.chatBodyHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: thin solid #edeff1;
+
+  & > div {
+    width: 100%;
+
+    &:last-child {
+      width: 50%;
+    }
+  }
+
+
+}
+
+.chatBodyHeaderOptions {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+}
+
+.chatBodyHeaderUser {
+  padding-left: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-left: .5em;
+  display: block;
+  overflow: hidden;
+  white-space: nowrap;
+}

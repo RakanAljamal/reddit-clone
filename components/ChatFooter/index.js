@@ -1,4 +1,4 @@
-import styles from "../Chat/style.module.scss";
+import styles from "./style.module.scss";
 import React, {useState} from "react";
 import {useMutation} from "@apollo/client";
 import {POST_MESSAGE} from "../../graphql/Mutation";
@@ -24,7 +24,7 @@ function Textarea({value, sendMessage, onMessageChange}) {
 
 function ChatBodyFooter({otherUser,synced}) {
     const [message, setMessage] = useState('');
-    const [postMessage, {data, error, loading}] = useMutation(POST_MESSAGE);
+    const [postMessage, {error, loading}] = useMutation(POST_MESSAGE);
     const sendMessage = () => {
         if (message.trim().length < 1) {
             return;
