@@ -4,12 +4,12 @@ import {setContext} from "@apollo/client/link/context";
 import {SubscriptionClient} from "subscriptions-transport-ws";
 import {getMainDefinition} from "@apollo/client/utilities";
 
-const httpUri = process.env.GRAPHQL_HTTP_URI;
+const httpUri = 'http://192.168.1.72:4000/graphql';
 
 const ssrMode = typeof window === 'undefined';
 
 let wsLink;
-const wsUri = process.env.GRAPHQL_WS_URI;
+const wsUri = 'ws://192.168.1.72:4000/subscriptions';
 
 const authLink = setContext((_, {headers}) => {
     const token = localStorage.getItem('token');
