@@ -9,7 +9,7 @@ const httpUri = 'https://server.aljamal.club/graphql';
 const ssrMode = typeof window === 'undefined';
 
 let wsLink;
-const wsUri =  'ws://server.aljamal.club/subsriptions';
+const wsUri =  'wss://server.aljamal.club/subsriptions';
 
 const authLink = setContext((_, {headers}) => {
     const token = localStorage.getItem('token');
