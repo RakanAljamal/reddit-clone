@@ -1,5 +1,6 @@
 const withSass = require('@zeit/next-sass')
 const env = require('dotenv').config().parsed;
+console.log(env)
 const config = {
     webpack(config, {isServer}) {
         config.module.rules.push({
