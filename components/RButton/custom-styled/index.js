@@ -119,6 +119,20 @@ const rJoin = () => css`
 
 
 `
+const tryNow = () => css`
+  color: #fff;
+  background: #ff4500;
+  border-radius: 36px;
+  font-family: Noto Sans,Arial,sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: unset;
+  line-height: 17px;
+  text-transform: unset;
+  min-height: 32px;
+  min-width: 32px;
+  padding: 8px 22px;
+`;
 const Button = styled.a`
   padding: 6px 15px;
   margin: 0.25rem;
@@ -146,6 +160,7 @@ const Button = styled.a`
   ${props => props.type === 'rJoin' && css`${rJoin}`}
   ${props => props.type === 'Apple' && css`${authButton}`}
   ${props => props.type === 'Google' && css`${authButton}`}
+  ${props => props.type === 'TryNow' && css`${tryNow}`}
 
 `
 
